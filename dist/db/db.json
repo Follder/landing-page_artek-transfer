@@ -1,0 +1,106 @@
+{
+    "transfer" : [
+        {
+            "title": "Трансфер Київ",
+            "img": "train",
+            "description": "Проїзд у вагоні купе потягом",
+            "toTheCamp": {
+                "trainNumber" : "№95",
+                "trainLink": "https://uz.gov.ua/passengers/timetable/?ntrain=71491&by_id=1",
+                "startCity": "Київ",
+                "startTime": "20:28",
+                "endCity": "Татарів-Буковель",
+                "endTime": "08:38"
+            },
+            "fromTheCamp": {
+                "trainNumber": "№58",
+                "trainLink": "https://www.uz.gov.ua/passengers/timetable/?ntrain=71816&by_id=1",
+                "startCity": "Татарів-Буковель",
+                "startTime": "13:53",
+                "endCity": "Київ",
+                "endTime": "08:03"
+            },
+            "firstBenefit": "Проїзд приватним автобусом з вокзалу до табору та назад (15 км).",
+            "secondBenefit": "Супровід педагогами-організаторами на всьому шляху.",
+            "thirdBenefit": "Харчування на зворотному шляху (обід у таборі та вечеря з собою)",
+            "price": {
+                "firstPriceDescr": "В дві сторони - ",
+                "firstPrice": "3450 грн.",
+                "secondPriceDescr": "В одну сторону - ",
+                "secondPrice": "2150 грн.",
+                "thirdPriceDescr": "",
+                "thirdPrice": ""
+            },
+            "inStock": true,
+            "message": "Місць немає"
+        },
+        {
+            "title": "Трансфер Львів",
+            "img": "train-intercity",
+            "description": "Проїзд потягом Інтерсіті",
+            "toTheCamp": {
+                "trainNumber" : "№810",
+                "trainLink": "https://www.uz.gov.ua/passengers/timetable/?ntrain=71486&by_id=1",
+                "startCity": "Львів",
+                "startTime": "07:37",
+                "endCity": "Татарів-Буковель",
+                "endTime": "12:05"
+            },
+            "fromTheCamp": {
+                "trainNumber": "№810",
+                "trainLink": "https://www.uz.gov.ua/passengers/timetable/?ntrain=71816&by_id=1",
+                "startCity": "Татарів-Буковель",
+                "startTime": "16:12",
+                "endCity": "Львів",
+                "endTime": "20:50"
+            },
+            "firstBenefit": "Проїзд приватним автобусом з вокзалу до табору та назад (15 км).",
+            "secondBenefit": "Супровід педагогами-організаторами на всьому шляху.",
+            "thirdBenefit": "Харчування на зворотному шляху (обід у таборі та вечеря з собою)",
+            "price": {
+                "firstPriceDescr": "В дві сторони - ",
+                "firstPrice": "2200 грн.",
+                "secondPriceDescr": "В одну сторону - ",
+                "secondPrice": "1300 грн.",
+                "thirdPriceDescr": "",
+                "thirdPrice": ""
+            },
+            "inStock": true,
+            "message": "Місць немає"
+        },
+        {
+            "title": "Трансфер Івано-Франківськ",
+            "img": "train-intercity",
+            "description": "Проїзд потягом Інтерсіті",
+            "toTheCamp": {
+                "trainNumber": "№810",
+                "trainLink": "https://www.uz.gov.ua/passengers/timetable/?ntrain=71486&by_id=1",
+                "startCity": "Івано-Франківськ",
+                "startTime": "10:06",
+                "endCity": "Татарів-Буковель",
+                "endTime": "12:05"
+            },
+            "fromTheCamp": {
+                "trainNumber": "№810",
+                "trainLink": "https://www.uz.gov.ua/passengers/timetable/?ntrain=71486&by_id=1",
+                "startCity": "Татарів-Буковель",
+                "startTime": "16:12",
+                "endCity": "Івано-Франківськ",
+                "endTime": "18:03"
+            },
+            "firstBenefit": "Проїзд приватним автобусом з вокзалу до табору та назад (15 км).",
+            "secondBenefit": "Супровід педагогами-організаторами на всьому шляху.",
+            "thirdBenefit": "Харчування на зворотному шляху (обід у таборі та вечеря з собою)",
+            "price": {
+                "firstPriceDescr": "В дві сторони - ",
+                "firstPrice": "1000 грн.",
+                "secondPriceDescr": "Івано-Франківськ - Буковель - ",
+                "secondPrice": "400 грн.",
+                "thirdPriceDescr": "Буковель - Івано-Франківськ - ",
+                "thirdPrice": "600 грн."
+            },
+            "inStock": true,
+            "message": "Місць немає"
+        }
+    ]
+}

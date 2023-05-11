@@ -1,0 +1,25 @@
+.promo {
+    background: url('../img/cover.jpg') center center/cover no-repeat;
+    min-height: 700px;
+    padding: 100px 0;
+    text-align: center;
+    &__logo {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    &__title {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 32px;
+        color: #646464;
+        margin: 0 auto;
+        letter-spacing: 2px;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 575px) {
+    .promo {
+        min-height: 600px;
+    }
+}

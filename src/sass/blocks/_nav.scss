@@ -1,0 +1,116 @@
+.nav {
+    font-size: 18px;
+    background-color: $main-color;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0, .35);
+    position: relative;
+    z-index: 10;
+    .container {
+        position: relative;
+        z-index: 10;
+    }
+    &__list {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        width: 600px;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 0;
+    }
+    &__item-link {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        padding: 15px;
+        transition: all 0.2s;
+        &:hover {
+            color: $hover-color;
+        }
+    }
+    .burger {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-content: end;
+        text-align: right;
+        height: 28px;
+        padding: 5px;
+        cursor: pointer;
+        transition: all .5s;
+        &__line {
+            width: 26px;
+            height: 2px;
+            background-color: #fff;
+
+        }
+        &_active {
+            position: relative;
+            transition: all .5s;
+            .burger__line {
+                &_second {
+                    display: none;
+                }
+                &_first {
+                    position: absolute;
+                    top: 12px;
+                    right: 6px;
+                    transform: rotate(45deg);
+                }
+                &_third {
+                    position: absolute;
+                    top: 12px;
+                    right: 6px;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+    &__mobile {
+        position: relative;
+        list-style: none;
+        text-align: center;
+        transition: all .5s;
+        transform: translateY(calc(-100% - 50px));
+        padding: 15px 0;
+        position: absolute;
+        top: 20px;
+        width: calc(100% - 20px);
+        background-color: rgba(255,255,255, 0.8);
+        font-weight: 500;
+        opacity: 0;
+        z-index: -1;
+        .nav__item-link {
+            color: $main-color;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .nav__list {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 575px) {
+    .nav {
+        &__list {
+            display: none;
+        }
+        .burger {
+            display: flex;
+
+        }
+        &__mobile{
+            opacity: 0;
+            transform: translateY(calc(-100% - 50px));
+            z-index: -1;
+            &_active {
+                opacity: 1;
+                transform: translateY(0);
+                z-index: -1;
+            }
+        } 
+    }
+}

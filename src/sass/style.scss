@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+
+$main-color: #01579b;
+$buttons-color: #03a9f4;
+$hover-color: #41c7f0;
+$grey-color: #f3f3f3;
+$text-color: #4b4b4b;
+
+@import 'blocks/nav';
+@import 'blocks/promo';
+@import 'blocks/title';
+@import 'blocks/button';
+@import 'blocks/about';
+@import 'blocks/benefits';
+@import 'blocks/orders';
+@import 'blocks/footer';
+@import 'blocks/modal';
+@import 'blocks/forms';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.strong {
+    font-weight: 700;
+    color: $text-color;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: $grey-color;
+    margin: 15px auto;
+}
+
+.show {
+    display: '';
+}
+
+.hide {
+    display: none;
+}
+
+@media (max-width: 1199px) {
+    .container {
+        width: 960px
+    }
+};
+
+@media (max-width: 991px) {
+    .container {
+        width: 720px
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        width: 540px
+    }
+}
+
+@media (max-width: 575px) {
+    .container {
+        width: 100%;
+        padding: 0 10px;
+    }
+}

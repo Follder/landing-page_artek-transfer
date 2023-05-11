@@ -1,0 +1,184 @@
+.form {
+    fieldset {
+        margin-top: 20px;
+        padding: 15px;
+        border: 1px solid #dfdfdf;
+        border-radius: 10px;
+    }
+    legend {
+        margin-left: 15px;
+    }
+    &__camp {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 210px));
+        grid-template-rows: auto;
+        grid-auto-rows: auto;
+        &-input {
+            margin-top: 8px;
+        }
+    }
+    &__way {
+        &-input {
+            margin-top: 8px;
+        }
+    }
+    &__sex {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 210px));
+        grid-template-rows: auto;
+        grid-auto-rows: auto;
+        &-input {
+            margin-top: 8px;
+        }
+    }
+    &__name {
+        display: grid;
+        grid-template: 1fr / 1fr;
+        &-input{
+            input {
+                margin-top: 8px;
+                width: 100%;
+                height: 26px;
+                padding: 6px 12px;
+                border: 1px solid #dfdfdf;
+                border-radius: 4px;
+                color: $text-color
+            } 
+            input:focus-visible {
+                outline: 1px solid $hover-color;
+            }
+        }
+    }
+    &__childBirthday {
+        display: grid;
+        grid-template: 1fr / 1fr;
+        &-input{
+            input {
+                display: block;
+                margin-top: 8px;
+                width: 50%;
+                height: 26px;
+                padding: 6px 12px;
+                border: 1px solid #dfdfdf;
+                border-radius: 4px;
+                color: $text-color
+            } 
+            input:focus-visible {
+                outline: 1px solid $hover-color;
+            }
+        }
+    }
+    &__phone {
+        display: grid;
+        grid-template: 1fr / 1fr;
+        &-input{
+            width: 100%;
+            input {
+                display: block;
+                margin-top: 8px;
+                width: 50%;
+                height: 26px;
+                padding: 6px 12px;
+                border: 1px solid #dfdfdf;
+                border-radius: 4px;
+                color: $text-color
+            } 
+            input:focus-visible {
+                outline: 1px solid $hover-color;
+            }
+        }
+    }
+    &__email {
+        display: grid;
+        grid-template: 1fr / 1fr;
+        &-input{
+            width: 100%;
+            input {
+                display: block;
+                margin-top: 8px;
+                width: 100%;
+                height: 26px;
+                padding: 6px 12px;
+                border: 1px solid #dfdfdf;
+                border-radius: 4px;
+                color: $text-color
+            } 
+            input:focus-visible {
+                outline: 1px solid $hover-color;
+            }
+        }
+    }
+    &__note {
+        display: grid;
+        grid-template: 1fr / 1fr;
+        &-input{
+            width: 100%;
+            textarea {
+                display: block;
+                margin-top: 8px;
+                width: 100%;
+                min-height: 100px;
+                padding: 6px 12px;
+                border: 1px solid #dfdfdf;
+                border-radius: 4px;
+                color: $text-color;
+                resize: none;
+            } 
+            textarea:focus-visible {
+                outline: 1px solid $hover-color;
+            }
+        }
+        label {
+            font-size: 12px;
+        }
+    }
+    &__robot {
+        display: grid;
+        grid-template: 1fr / 1fr;
+        &-input{
+            width: 100%;
+            input {
+                display: block;
+                margin-top: 8px;
+                width: 100%;
+                height: 26px;
+                padding: 6px 12px;
+                border: 1px solid #dfdfdf;
+                border-radius: 4px;
+                color: $text-color
+            } 
+            input:focus-visible {
+                outline: 1px solid $hover-color;
+            }
+        }
+    }
+    &__total {
+        text-align: center;
+        #amount {
+            font-size: 25px;
+        }
+    }
+}
+
+input {
+    font-family: 'Montserrat';
+}
+
+@media (max-width: 575px) {
+    .form {
+        &__childBirthday {
+            &-input {
+                input {
+                    width: 100%;
+                }
+            }
+        }
+        &__childPhone {
+            &-input {
+                input {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
