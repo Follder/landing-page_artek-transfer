@@ -54,6 +54,12 @@ body {
     display: none;
 }
 
+.validate {
+    color: red;
+    font-size: 10px;
+    padding-left: 20px;
+}
+
 @media (max-width: 1199px) {
     .container {
         width: 960px

@@ -18,15 +18,15 @@ window.addEventListener('DOMContentLoaded', () => {
             input: `
             <legend>Напрямок</legend>
             <div class="form__way-input">
-                <input type="radio" id="way-both" value="Київ - Буковель - Київ" name="Трансфер" data-price="3450" required>
+                <input type="radio" id="way-both" value="Київ - Буковель - Київ" name="Трансфер" data-price="3450" data-way >
                 <label for="way-both">Київ - Буковель - Київ</label>
             </div>
             <div class="form__way-input">
-                <input type="radio" id="way-kyiv-bukovel" value="Київ - Буковель" name="Трансфер" data-price="2150" required>
+                <input type="radio" id="way-kyiv-bukovel" value="Київ - Буковель" name="Трансфер" data-price="2150" data-way >
                 <label for="way-kyiv-bukovel">Київ - Буковель</label>
             </div>
             <div class="form__way-input">
-                <input type="radio" id="way-bukovel-kyiv" value="Буковель - Київ" name="Трансфер" data-price="2150" required>
+                <input type="radio" id="way-bukovel-kyiv" value="Буковель - Київ" name="Трансфер" data-price="2150" data-way >
                 <label for="way-bukovel-kyiv">Буковель - Київ</label>
             </div>
             `
@@ -35,15 +35,15 @@ window.addEventListener('DOMContentLoaded', () => {
             input: `
             <legend>Напрямок</legend>
             <div class="form__way-input">
-                <input type="radio" id="way-both" value="Львів - Буковель - Львів" name="Трансфер" data-price="2200" required>
+                <input type="radio" id="way-both" value="Львів - Буковель - Львів" name="Трансфер" data-price="2200" data-way>
                 <label for="way-both">Львів - Буковель - Львів</label>
             </div>
             <div class="form__way-input">
-                <input type="radio" id="way-lviv-bukovel" value="Львів - Буковель" name="Трансфер" data-price="1300" required>
+                <input type="radio" id="way-lviv-bukovel" value="Львів - Буковель" name="Трансфер" data-price="1300" data-way>
                 <label for="way-lviv-bukovel">Львів - Буковель</label>
             </div>
             <div class="form__way-input">
-                <input type="radio" id="way-bukovel-lviv" value="Буковель - Львів" name="Трансфер" data-price="1300" required>
+                <input type="radio" id="way-bukovel-lviv" value="Буковель - Львів" name="Трансфер" data-price="1300" data-way>
                 <label for="way-bukovel-lviv">Буковель - Львів</label>
             </div>
             `
@@ -52,15 +52,15 @@ window.addEventListener('DOMContentLoaded', () => {
             input: `
             <legend>Напрямок</legend>
             <div class="form__way-input">
-                <input type="radio" id="way-both" value="Франківськ - Буковель - Франківськ" name="Трансфер" data-price="1000" required>
+                <input type="radio" id="way-both" value="Франківськ - Буковель - Франківськ" name="Трансфер" data-price="1000" data-way>
                 <label for="way-both">Франківськ - Буковель - Франківськ</label>
             </div>
             <div class="form__way-input">
-                <input type="radio" id="way-if-bukovel" value="Франківськ - Буковель" name="Трансфер" data-price="400" required>
+                <input type="radio" id="way-if-bukovel" value="Франківськ - Буковель" name="Трансфер" data-price="400" data-way>
                 <label for="way-if-bukovel">Франківськ - Буковель</label>
             </div>
             <div class="form__way-input">
-                <input type="radio" id="way-bukovel-if" value="Буковель - Франківськ" name="Трансфер" data-price="600" required>
+                <input type="radio" id="way-bukovel-if" value="Буковель - Франківськ" name="Трансфер" data-price="600" data-way>
                 <label for="way-bukovel-if">Буковель - Франківськ</label>
             </div>
             `
@@ -297,10 +297,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
             })
             quantity = transferDate.length;
-            console.log(quantity);
-            console.log(amount);
             amount = price * quantity; 
-            console.log(amount);  
+
             if (amount) {
                 document.querySelector('#amount').textContent = amount;
             } else {
@@ -318,12 +316,15 @@ window.addEventListener('DOMContentLoaded', () => {
             formData.append('Дата заїзду', transferDate.join('; '));
             console.log(formData);
 
-            postData(URL, formData)
-            .then(data => data.text())
-            .then(data => console.log(data))
-            .then(() => showThanksModal(message.successTitle, message.successImg, message.successDescr))
-            .catch(() => showThanksModal(message.failerTitle, message.failerImg, message.failerDescr))
-            .finally(form.reset());
+            if (validate()) {
+                postData(URL, formData)
+                .then(data => data.text())
+                .then(data => console.log(data))
+                .then(() => showThanksModal(message.successTitle, message.successImg, message.successDescr))
+                .catch(() => showThanksModal(message.failerTitle, message.failerImg, message.failerDescr))
+                .finally(form.reset());
+            }
+
         })
         form.addEventListener('reset', () => {
             document.querySelector('#amount').textContent = '____';
@@ -385,6 +386,132 @@ window.addEventListener('DOMContentLoaded', () => {
             thankModal.remove();
         }, 3000)
     }
-});
+     // Validate
 
- 
+
+
+    function validate() {
+        function validateMessage(message, parentSelector) {
+            const span = document.createElement('span');
+            span.classList.add('validate');
+            span.textContent = message;
+            parentSelector.append(span);
+            setTimeout(() => {
+                span.remove();
+            }, 3000)
+        }
+
+        const checkboxValidate = ({selector, message, parentSelector}) => {
+            const isCheched = Array.from(selector).some(item => item.checked == true);
+            if (!isCheched) {
+                validateMessage(message, parentSelector);
+                console.log(selector);
+                selector[0].focus();
+                return false;
+            }
+            return true;
+        }
+
+        const dateValidate = ({selector, message, parentSelector}) => {
+            if (!(selector.value)) {
+                validateMessage(message, parentSelector);
+                console.log(selector);
+                selector.focus();
+                return false;
+            } 
+            return true;
+        }
+
+        const textValidate = ({selector, message, parentSelector, secondMessage}) => {
+            if (selector.value.length == 0) {
+                validateMessage(message, parentSelector);
+                selector.focus();
+                return false;
+            } else if (selector.value.length <= 5) {
+                validateMessage(secondMessage, parentSelector);
+                selector.focus();
+                return false;
+            }
+            return true;
+        }
+
+/*         const phoneValidate = ({selector, message, parentSelector}) => {
+            if (selector.value.replace(/WS/gi, '') < 4) {
+                validateMessage(message, parentSelector);
+                selector.focus();
+                return false;
+            } 
+        } */
+
+        const robotValidate = ({selector, message, parentSelector}) => {
+            if (selector.value != '') {
+                validateMessage(message, parentSelector);
+                return false;
+            }
+            return true;
+        }
+
+        const isRobot = robotValidate({
+            selector: document.querySelector('#robot'),
+            message: '*Це поле має бути порожнє',
+            parentSelector: document.querySelector('.form__robot'),
+        })
+
+
+
+        const sex = checkboxValidate({
+            selector: document.querySelectorAll('[data-sex]'),
+            message: '*Оберіть стать дитини',
+            parentSelector: document.querySelector('.form__sex'),
+        })
+
+        const age = dateValidate({
+            selector: document.querySelector('[data-birthday]'),
+            message: '*Оберіть вік дитини',
+            parentSelector: document.querySelector('.form__childBirthday'),
+        })
+
+        const childName = textValidate({
+            selector: document.querySelector('#name'),
+            message: '*Ім`я та прізвище дитини обов`язкове',
+            secondMessage: '*Надто коротке ім`я та прізвище',
+            parentSelector: document.querySelector('.form__name'),
+        })
+
+        const way = checkboxValidate({
+            selector: document.querySelectorAll('[data-way]'),
+            message: '*Оберіть напрям трансферу',
+            parentSelector: document.querySelector('.form__way'),
+        })
+
+        const dateCamp = checkboxValidate({
+            selector: document.querySelectorAll('[data-checkbox]'),
+            message: '*Оберіть дату табірної зміни',
+            parentSelector: document.querySelector('.form__camp'),
+        })
+
+/*         const parentPhone = phoneValidate({
+            selector: document.querySelector('#phone'),
+            message: '*Оберіть',
+            parentSelector: document.querySelector('.form__phone'),
+        }) */
+
+        return isRobot && childName && way && sex && age && dateCamp && true;
+        
+    }
+
+/*     form.addEventListener('click', (e) => {
+        if (e.target) {
+            document.querySelector('#way-kyiv-bukovel').focus();
+            console.log(document.querySelector('#birthday').value);
+            if (document.querySelector('#birthday').value > '2005-05-18') {
+                console.log('done');
+            }
+        }
+        
+        console.log(document.querySelector('#birthday').checked);
+        console.dir(document.querySelector('#birthday'));
+    })
+ */
+    
+});

@@ -161,7 +161,7 @@
                         <div class="close" data-close>&times;</div>
                     </div>
                     <img src="img/modal/child.png" alt="children">
-                    <form action="#" class="form">
+                    <form name="form" class="form">
                         <fieldset class="form__camp">
                             <legend>Дата заїзду</legend>
                             <div class="form__camp-input">
@@ -186,26 +186,26 @@
                           <fieldset class="form__way" id="formWay">
                             <legend>Напрямок</legend>
                             <div class="form__way-input">
-                              <input type="radio" id="way-both" value="Київ - Буковель - Київ" name="Трансфер" data-price="3450" required>
+                              <input type="radio" id="way-both" value="Київ - Буковель - Київ" tabindex="0" name="Трансфер" data-price="3450" data-way="true">
                               <label for="way-both">Київ - Буковель - Київ</label>
                             </div>
                             <div class="form__way-input">
-                              <input type="radio" id="way-kyiv-bukovel" value="Київ - Буковель" name="Трансфер" data-price="2150" required>
+                              <input type="radio" id="way-kyiv-bukovel" value="Київ - Буковель" name="Трансфер" data-price="2150" data-way="true">
                               <label for="way-kyiv-bukovel">Київ - Буковель</label>
                             </div>
                             <div class="form__way-input">
-                              <input type="radio" id="way-bukovel-kyiv" value="Буковель - Київ" name="Трансфер" data-price="2150" required>
+                              <input type="radio" id="way-bukovel-kyiv" value="Буковель - Київ" name="Трансфер" data-price="2150" data-way="true">
                               <label for="way-bukovel-kyiv">Буковель - Київ</label>
                             </div>
                           </fieldset>
                           <fieldset class="form__sex">
                             <legend>Стать</legend>
                             <div class="form__sex-input">
-                              <input type="radio" name="Стать" value="Чоловіча" id="male">
+                              <input type="radio" name="Стать" value="Чоловіча" id="male" data-sex="true">
                               <label for="male">Чоловіча</label>
                             </div>
                             <div class="form__sex-input">
-                              <input type="radio" name="Стать" value="Жіноча" id="female">
+                              <input type="radio" name="Стать" value="Жіноча" id="female" data-sex="true">
                               <label for="female">Жіноча</label>
                             </div>
                           </fieldset>
@@ -213,14 +213,14 @@
                             <legend>Прізвище та ім'я дитини</legend>
                             <div class="form__name-input">
                               <label for="name">Згідно з документами</label>
-                              <input type="text" id="name" name="Прізвище та ім'я дитини" required>
+                              <input type="text" id="name" name="Прізвище та ім`я дитини">
                             </div>
                           </fieldset>
                           <fieldset class="form__childBirthday">
                             <legend>Дата народження дитини</legend>
                             <div class="form__childBirthday-input">
                               <label for="birthday">Оберіть дату</label>
-                              <input type="date" id="birthday" name="Дата народження дитини" required >
+                              <input type="date" id="birthday" name="Дата народження дитини" data-birthday="true">
                             </div>
                           </fieldset>
                           <fieldset class="form__phone">
@@ -234,21 +234,21 @@
                             <legend>Дані одного з батьків</legend>
                             <div class="form__name-input">
                               <label for="parentsName">Прізвище та імʼя контактної особи</label>
-                              <input type="text" id="parentsName" name="Дані одного з батьків" required>
+                              <input type="text" id="parentsName" name="Дані одного з батьків" minlength="5">
                             </div>
                           </fieldset>
                           <fieldset class="form__phone">
                             <legend>Номер телефону</legend>
                             <div class="form__phone-input">
                               <label for="parentsPhone">Номер контактної особи для інформування</label>
-                              <input type="phone" id="parentsPhone" name="Номер телефону" placeholder="+38" value="+38" required>
+                              <input type="phone" id="parentsPhone" name="Номер телефону" placeholder="+38" minlength="13" value="+38">
                             </div>
                           </fieldset>
                           <fieldset class="form__email">
                             <legend>E-mail</legend>
                             <div class="form__email-input">
                               <label for="email">На цей e-mail Вам прийде рахунок для оплати</label>
-                              <input type="email" id="email" name="E-mail">
+                              <input type="email" id="email" name="E-mail" minlength="5">
                             </div>
                           </fieldset>
                           <fieldset class="form__note">
@@ -264,7 +264,7 @@
                           <fieldset>
                             <legend>Я даю згоду на обробку своїх персональних даних</legend>
                             <div>
-                              <input type="radio" value="Підтверджую" name="Згода обробки персональних даних" id="privat-policy" required>
+                              <input type="radio" value="Підтверджую" name="Згода обробки персональних даних" id="privat-policy">
                               <label for="privat-policy">Підтверджую</label>
                             </div>
                           </fieldset>
@@ -288,6 +288,7 @@
                 </div>
             </div>
         </div>
+    <script src="js/validate.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
