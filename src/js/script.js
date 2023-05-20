@@ -316,6 +316,7 @@ window.addEventListener('DOMContentLoaded', () => {
             formData.append('Дата заїзду', transferDate.join('; '));
             console.log(formData);
 
+
             if (validate()) {
                 postData(URL, formData)
                 .then(data => data.text())
@@ -388,7 +389,14 @@ window.addEventListener('DOMContentLoaded', () => {
     }
      // Validate
 
-
+     let phone = document.querySelector('#parentsPhone');
+     phone.addEventListener('input', () => {
+         if (phone.value.length <= 13) {
+             phone.value = phone.value.replace(/[^+\d]/i, '');
+         } else {
+             phone.value = phone.value.replace(/.$/, '');
+         }
+     })
 
     function validate() {
         function validateMessage(message, parentSelector) {
@@ -435,13 +443,20 @@ window.addEventListener('DOMContentLoaded', () => {
             return true;
         }
 
-/*         const phoneValidate = ({selector, message, parentSelector}) => {
-            if (selector.value.replace(/WS/gi, '') < 4) {
+        const phoneValidate = ({selector, message, parentSelector, secondMessage}) => {
+            console.log(selector);
+            if (selector.value.length == 0) {
                 validateMessage(message, parentSelector);
                 selector.focus();
                 return false;
-            } 
-        } */
+            } else if (selector.value.length < 12) {
+                validateMessage(secondMessage, parentSelector);
+                selector.focus();
+                return false;
+            }
+            console.log('why true');
+            return true;
+        }
 
         const robotValidate = ({selector, message, parentSelector}) => {
             if (selector.value != '') {
@@ -457,12 +472,11 @@ window.addEventListener('DOMContentLoaded', () => {
             parentSelector: document.querySelector('.form__robot'),
         })
 
-
-
-        const sex = checkboxValidate({
-            selector: document.querySelectorAll('[data-sex]'),
-            message: '*Оберіть стать дитини',
-            parentSelector: document.querySelector('.form__sex'),
+        const phone = phoneValidate({
+            selector: document.querySelector('#parentsPhone'),
+            message: '*Номер телефону обов`язковий',
+            parentSelector: document.querySelector('.form__phone_parents'),
+            secondMessage: '*Перевірте правильність введення номеру',
         })
 
         const age = dateValidate({
@@ -478,6 +492,12 @@ window.addEventListener('DOMContentLoaded', () => {
             parentSelector: document.querySelector('.form__name'),
         })
 
+        const sex = checkboxValidate({
+            selector: document.querySelectorAll('[data-sex]'),
+            message: '*Оберіть стать дитини',
+            parentSelector: document.querySelector('.form__sex'),
+        })
+
         const way = checkboxValidate({
             selector: document.querySelectorAll('[data-way]'),
             message: '*Оберіть напрям трансферу',
@@ -490,13 +510,9 @@ window.addEventListener('DOMContentLoaded', () => {
             parentSelector: document.querySelector('.form__camp'),
         })
 
-/*         const parentPhone = phoneValidate({
-            selector: document.querySelector('#phone'),
-            message: '*Оберіть',
-            parentSelector: document.querySelector('.form__phone'),
-        }) */
 
-        return isRobot && childName && way && sex && age && dateCamp && true;
+
+        return isRobot && phone && childName && way && sex && age && dateCamp && true;
         
     }
 
@@ -515,3 +531,16 @@ window.addEventListener('DOMContentLoaded', () => {
  */
     
 });
+
+let str = '<h1>Hello, world!</h1>';
+
+
+console.log(str.match(/<(.*?)>/g))
+console.log(str.match(/<(.*?)>/)[0])
+console.log(str.match(/<(.*?)>/)[1])
+
+
+
+let regexp = /#([a-z0-9A-Z]{3}){1,2}/gi
+let tr = "color: #3f3; background-color: #AA00ef; and: #abcd";
+console.log(tr.match(regexp))
