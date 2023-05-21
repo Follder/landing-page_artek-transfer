@@ -34,6 +34,16 @@ body {
     margin: 0 auto;
 }
 
+.body__wrapper {
+    position: relative;
+}
+
+.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
 .strong {
     font-weight: 700;
     color: $text-color;

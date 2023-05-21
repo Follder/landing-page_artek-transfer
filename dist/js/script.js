@@ -338,7 +338,8 @@ window.addEventListener('DOMContentLoaded', () => {
         modal.classList.add('show');
         modal.classList.remove('hide');
 
-        document.querySelector('.body__wrapper').style.overflow = 'hidden';
+        document.querySelector('.body__wrapper').classList.add('no-scroll');
+        
     }
 
     function closeModal(modalSelector) {
@@ -347,7 +348,8 @@ window.addEventListener('DOMContentLoaded', () => {
             modal.classList.add('hide');
             modal.classList.remove('show');
 
-            document.querySelector('.body__wrapper').style.overflow = '';
+            document.querySelector('.body__wrapper').classList.remove('no-scroll');
+            
     }
 
     const closeBtn = document.querySelector('[data-close]'),
