@@ -28,6 +28,16 @@
             color: $hover-color;
         }
     }
+    .burger__wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        &-title {
+            color: #fff;
+            font-weight: 500;
+            line-height: 30px;
+        }
+    }
     .burger {
         display: none;
         flex-direction: column;
