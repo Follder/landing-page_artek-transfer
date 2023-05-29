@@ -1,12 +1,14 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const URL = 'https://script.google.com/macros/s/AKfycbzCFVPE48nCaLfiRYJjKXTrUlAo5pM39bNJSraIklb15sqNkNlAeeWLImkiYzWgVr5L/exec'
+    //const URL = 'https://script.google.com/macros/s/AKfycbzCFVPE48nCaLfiRYJjKXTrUlAo5pM39bNJSraIklb15sqNkNlAeeWLImkiYzWgVr5L/exec'
+    const URL = 'https://script.google.com/macros/s/AKfycbzqkGNf2Dj0tqo2KExAd_uXLub3pGUj_VuCT26CFXuBvaEnGiGz521ZXcGJXCMAYuxCjQ/exec'
     const modal = document.querySelector('[data-modal]');
     const form = document.querySelector('form');
+
 
     const message = {
         successTitle: 'Дякуємо!',
         successImg: 'img/modal/done-icon.png',
-        successDescr: 'Найближчим часом з вами зв`яжеться менеджер',
+        successDescr: 'Ваше замовлення невдовзі буде опрацьоване. Очікуйте рахунок для оплати на електронну пошту.',
         failerTitle: 'Йой, халепа!',
         failerImg: 'img/modal/error-icon.png',
         failerDescr: 'Щось пішло не так, спробуйте пізніше',
@@ -18,15 +20,15 @@ window.addEventListener('DOMContentLoaded', () => {
             input: `
             <legend>Напрямок</legend>
             <div class="form__way-input">
-                <input type="radio" id="way-both" value="Київ - Буковель - Київ" name="Трансфер" data-price="3450" data-way >
+                <input type="radio" id="way-both" value="Київ - Буковель - Київ" name="Напрямок" data-price="3450" data-way >
                 <label for="way-both">Київ - Буковель - Київ</label>
             </div>
             <div class="form__way-input">
-                <input type="radio" id="way-kyiv-bukovel" value="Київ - Буковель" name="Трансфер" data-price="2150" data-way >
+                <input type="radio" id="way-kyiv-bukovel" value="Київ - Буковель" name="Напрямок" data-price="2150" data-way >
                 <label for="way-kyiv-bukovel">Київ - Буковель</label>
             </div>
             <div class="form__way-input">
-                <input type="radio" id="way-bukovel-kyiv" value="Буковель - Київ" name="Трансфер" data-price="2150" data-way >
+                <input type="radio" id="way-bukovel-kyiv" value="Буковель - Київ" name="Напрямок" data-price="2150" data-way >
                 <label for="way-bukovel-kyiv">Буковель - Київ</label>
             </div>
             `
@@ -35,15 +37,15 @@ window.addEventListener('DOMContentLoaded', () => {
             input: `
             <legend>Напрямок</legend>
             <div class="form__way-input">
-                <input type="radio" id="way-both" value="Львів - Буковель - Львів" name="Трансфер" data-price="2200" data-way>
+                <input type="radio" id="way-both" value="Львів - Буковель - Львів" name="Напрямок" data-price="2200" data-way>
                 <label for="way-both">Львів - Буковель - Львів</label>
             </div>
             <div class="form__way-input">
-                <input type="radio" id="way-lviv-bukovel" value="Львів - Буковель" name="Трансфер" data-price="1300" data-way>
+                <input type="radio" id="way-lviv-bukovel" value="Львів - Буковель" name="Напрямок" data-price="1300" data-way>
                 <label for="way-lviv-bukovel">Львів - Буковель</label>
             </div>
             <div class="form__way-input">
-                <input type="radio" id="way-bukovel-lviv" value="Буковель - Львів" name="Трансфер" data-price="1300" data-way>
+                <input type="radio" id="way-bukovel-lviv" value="Буковель - Львів" name="Напрямок" data-price="1300" data-way>
                 <label for="way-bukovel-lviv">Буковель - Львів</label>
             </div>
             `
@@ -52,16 +54,16 @@ window.addEventListener('DOMContentLoaded', () => {
             input: `
             <legend>Напрямок</legend>
             <div class="form__way-input">
-                <input type="radio" id="way-both" value="Франківськ - Буковель - Франківськ" name="Трансфер" data-price="1000" data-way>
+                <input type="radio" id="way-both" value="Франківськ - Буковель - Франківськ" name="Напрямок" data-price="1000" data-way>
                 <label for="way-both">Франківськ - Буковель - Франківськ</label>
             </div>
             <div class="form__way-input">
-                <input type="radio" id="way-if-bukovel" value="Франківськ - Буковель" name="Трансфер" data-price="400" data-way>
-                <label for="way-if-bukovel">Франківськ - Буковель</label>
+                <input type="radio" id="way-if-bukovel" value="Франківськ - Буковель" name="Напрямок" data-price="400" data-way>
+                <label for="way-if-bukovel">Івано-Франківськ - Буковель</label>
             </div>
             <div class="form__way-input">
-                <input type="radio" id="way-bukovel-if" value="Буковель - Франківськ" name="Трансфер" data-price="600" data-way>
-                <label for="way-bukovel-if">Буковель - Франківськ</label>
+                <input type="radio" id="way-bukovel-if" value="Буковель - Франківськ" name="Напрямок" data-price="600" data-way>
+                <label for="way-bukovel-if">Буковель - Івано-Франківськ</label>
             </div>
             `
         }
@@ -275,7 +277,10 @@ window.addEventListener('DOMContentLoaded', () => {
         return res;
     }
   
-    
+        
+        const dayOfMonth = document.querySelector('#dayOfMonth'),
+            month = document.querySelector('#month'),
+            year = document.querySelector('#year');
         const checkboxes = document.querySelectorAll('[data-checkbox]');
         let amount;
         let price;
@@ -311,9 +316,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
             const formData = new FormData(form);
             
-            formData.append('Дата заявки', parseDate(new Date()));
+            formData.append('Позначка часу', parseDate(new Date()));
             formData.append('Сума', amount);
             formData.append('Дата заїзду', transferDate.join('; '));
+            formData.append('Дата народження', dayOfMonth.value + '-' + month.value + '-' + year.value);
             console.log(formData);
 
 
@@ -330,7 +336,36 @@ window.addEventListener('DOMContentLoaded', () => {
         form.addEventListener('reset', () => {
             document.querySelector('#amount').textContent = '____';
         })
+    
+    /* Modal */
+    let close;
+    function showThanksModal(title, img, descr) {
+        const prevModalDialog = document.querySelector('.modal__dialog');
 
+        prevModalDialog.classList.add('hide');
+
+        const thankModal = document.createElement('div');
+        thankModal.classList.add('modal__dialog');
+        thankModal.innerHTML = `
+            <div class="modal-thanks">
+                <div class="modal-thanks__header">
+                    <div class="close close_thank" data-close>&times;</div>
+                    <h3 class="modal-thanks__title">${title}</h3>
+                </div>
+                <img src="${img}" alt="icon">
+                <div class="modal-thanks__descr">${descr}</div>
+            </div>
+        `;
+        document.querySelector('[data-modal]').append(thankModal);
+
+        setTimeout(() => {
+            closeModal('[data-modal]');
+            prevModalDialog.classList.remove('hide');
+            thankModal.remove();
+        }, 7000)
+
+        close = document.querySelector('.close_thank');
+    }
 
     function openModal(modalSelector) {
         const modal = document.querySelector(modalSelector);
@@ -356,39 +391,14 @@ window.addEventListener('DOMContentLoaded', () => {
           overlay = document.querySelector('[data-modal]');
 
     window.addEventListener('click', (e) => {
-
         if (e.target) {
-            if (e.target === closeBtn || e.target === overlay) {
+            if (e.target === close || e.target === closeBtn || e.target === overlay) {
                 closeModal('[data-modal]');
             }
         }
     })
 
-    function showThanksModal(title, img, descr) {
-        const prevModalDialog = document.querySelector('.modal__dialog');
 
-        prevModalDialog.classList.add('hide');
-
-        const thankModal = document.createElement('div');
-        thankModal.classList.add('modal__dialog');
-        thankModal.innerHTML = `
-            <div class="modal-thanks">
-                <div class="modal-thanks__header">
-                    <div class="close" data-close>&times;</div>
-                    <h3 class="modal-thanks__title">${title}</h3>
-                </div>
-                <img src="${img}" alt="icon">
-                <div class="modal-thanks__descr">${descr}</div>
-            </div>
-        `;
-        document.querySelector('[data-modal]').append(thankModal);
-
-        setTimeout(() => {
-            closeModal('[data-modal]');
-            prevModalDialog.classList.remove('hide');
-            thankModal.remove();
-        }, 3000)
-    }
      // Validate
 
      let phones = document.querySelectorAll('[data-phone]');
@@ -426,13 +436,23 @@ window.addEventListener('DOMContentLoaded', () => {
             return true;
         }
 
-        const dateValidate = ({selector, message, parentSelector}) => {
+/*         const dateValidate = ({selector, message, parentSelector}) => {
             if (!(selector.value)) {
                 validateMessage(message, parentSelector);
                 console.log(selector);
                 selector.focus();
                 return false;
             } 
+            return true;
+        }
+ */
+
+        const selectValidate = ({selector, parentSelector, message}) => {
+            if (selector.value == '') {
+                validateMessage(message, parentSelector);
+                selector.focus();
+                return false;
+            }
             return true;
         }
 
@@ -516,10 +536,29 @@ window.addEventListener('DOMContentLoaded', () => {
             parentSelector: document.querySelector('.form__name_parents'),
         })
 
-        const age = dateValidate({
+/*         const age = dateValidate({
             selector: document.querySelector('[data-birthday]'),
             message: '*Оберіть вік дитини',
             parentSelector: document.querySelector('.form__childBirthday'),
+        }) */
+
+
+        const birthdayYear = selectValidate({
+            selector: document.querySelector('#year'),
+            parentSelector: document.querySelector('.form__childBirthday'),
+            message: '*Оберіть рік народження вашої дитини',
+        })
+
+        const birthdayMonth = selectValidate({
+            selector: document.querySelector('#month'),
+            parentSelector: document.querySelector('.form__childBirthday'),
+            message: '*Оберіть місяць народження вашої дитини',
+        })
+
+        const birthdayDay = selectValidate({
+            selector: document.querySelector('#dayOfMonth'),
+            parentSelector: document.querySelector('.form__childBirthday'),
+            message: '*Оберіть число народження вашої дитини',
         })
 
         const childName = textValidate({
@@ -547,6 +586,6 @@ window.addEventListener('DOMContentLoaded', () => {
             parentSelector: document.querySelector('.form__camp'),
         })
 
-        return isRobot && policy && phone && parentName && email && childName && way && sex && age && dateCamp && true;  
+        return isRobot && policy && phone && parentName && email && childName && way && sex && dateCamp && birthdayDay && birthdayMonth && birthdayYear && true;  
     }
 });

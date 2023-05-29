@@ -4,9 +4,11 @@
         padding: 15px;
         border: 1px solid #dfdfdf;
         border-radius: 10px;
+        font-size: 16px;
     }
     legend {
         margin-left: 15px;
+        font-size: 16px;
     }
     &__camp {
         display: grid;
@@ -15,6 +17,7 @@
         grid-auto-rows: auto;
         &-input {
             margin-top: 8px;
+            font-size: 16px;
         }
     }
     &__way {
@@ -42,7 +45,8 @@
                 padding: 6px 12px;
                 border: 1px solid #dfdfdf;
                 border-radius: 4px;
-                color: $text-color
+                color: $text-color;
+                font-size: 16px;
             } 
             input:focus-visible {
                 outline: 1px solid $hover-color;
@@ -53,17 +57,20 @@
         display: grid;
         grid-template: 1fr / 1fr;
         &-input{
-            input {
-                display: block;
+            display: flex;
+            select {
                 margin-top: 8px;
-                width: 50%;
                 height: 26px;
-                padding: 6px 12px;
+                padding: 3px 12px;
                 border: 1px solid #dfdfdf;
                 border-radius: 4px;
                 color: $text-color
-            } 
-            input:focus-visible {
+            }
+            select#month {
+                margin: 8px 10px 0 10px;
+                width: 100%;
+            }
+            select:focus-visible {
                 outline: 1px solid $hover-color;
             }
         }
