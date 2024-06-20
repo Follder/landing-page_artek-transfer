@@ -27,4 +27,4 @@ This commercial project was commissioned by the Artek Bukovel children's camp in
 
 Dmytro Koriahin - [@Dmytro Koriahin](https://github.com/Follder) - [dmytro.koriahin@gmail.com](mailto:dmytro.koriahin@gmail.com)
 
-Project Link: https://github.com/Follder/landing-page_inlift/
+Project Link: https://github.com/Follder/landing-page_artek-transfer
