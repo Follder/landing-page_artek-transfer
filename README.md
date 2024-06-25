@@ -1,4 +1,4 @@
-# Langing page "Inlift"
+# Langing page "Artek-Transfer"
 
 ## Demo
 For Demo this project you can use [DEMO LINK](https://artek-transfer.com.ua/)
