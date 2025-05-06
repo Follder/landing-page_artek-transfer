@@ -31,21 +31,17 @@ document.addEventListener("DOMContentLoaded", () => {
         trainLink:
           "https://uz.gov.ua/passengers/timetable/?ntrain=70824&by_id=1",
         startCity: "Київ",
-        startTime: "20:28",
+        startTime: "19:57",
         endCity: "Татарів-Буковель",
-        endTime: "08:38",
+        endTime: "08:12",
         toTrainTable: createTrainTable(
           "Київ - Татарів-Буковель",
-          ["Київ-Пас.", "--", "20 : 29", true],
-          ["Бердичів", "22 : 40", "22 : 42", false],
-          ["Львів", "03 : 18", "03 : 38", false],
-          ["Івано-Франківськ", "05 : 52", "06 : 08", false],
-          ["Яремче", "07 : 36", "07 : 39", false],
-          ["Татарів-Буковель", "08 : 05", "08 : 08", true],
-          ["Ворохта", "08 : 23", "08 : 25", false],
-          ["Ясіня", "09 : 04", "09 : 07", false],
-          ["Кваси", "09 : 27", "09 : 29", false],
-          ["Рахів", "09 : 50", "--", false]
+          ["Київ-Пас.", "--", "19 : 57", true],
+          ["Львів", "02 : 56", "03 : 48", false],
+          ["Івано-Франківськ", "05 : 59", "06 : 19", false],
+          ["Надвірна", "07 : 01", "07 : 03", false],
+          ["Яремче", "07 : 41", "07 : 44", false],
+          ["Татарів-Буковель", "08 : 12", "08 : 17", true],
         ),
       },
       trainFromTheCamp: {
@@ -54,21 +50,18 @@ document.addEventListener("DOMContentLoaded", () => {
         trainLink:
           "https://uz.gov.ua/passengers/timetable/?ntrain=70824&by_id=1",
         startCity: "Татарів-Буковель",
-        startTime: "20:10",
+        startTime: "21:37",
         endCity: "Київ",
-        endTime: "09:01",
+        endTime: "10:01",
         fromTrainTable: createTrainTable(
           "Татарів-Буковель - Київ",
-          ["Рахів", "--", "18 : 16", false],
-          ["Кваси", "18 : 41", "18 : 44", false],
-          ["Ясіня", "19 : 08", "19 : 11", false],
-          ["Ворохта", "19 : 53", "19 : 57", false],
-          ["Татарів-Буковель", "20 : 07", "20 : 10", true],
-          ["Яремче", "20 : 35", "20 : 38", false ],
-          ["Івано-Франківськ", "21 : 55", "22 : 23", false],
-          ["Львів", "00 : 45", "01 : 12", false],
-          ["Бердичів", "06 : 28", "06 : 30", false],
-          ["Київ-Пас.", "09 : 01", "--", true]
+          ["Татарів-Буковель", "21 : 32", "21 : 37", true],
+          ["Яремче", "22 : 05", "22 : 08", false ],
+          ["Надвірна", "22 : 43", "22 : 45", false],
+          ["Івано-Франківськ", "23 : 18", "23 : 46", false],
+          ["Львів", "02 : 06", "03 : 35", false],
+          ["Коростень", "08 : 11", "08 : 13", false],
+          ["Київ-Пас.", "10 : 01", "--", true]
         ),
       },
       attention:
@@ -79,11 +72,11 @@ document.addEventListener("DOMContentLoaded", () => {
       thirdBenefit: "Харчування на зворотному шляху (обід у таборі та вечеря)",
       price: {
         firstPriceDescr: "В дві сторони - ",
-        firstPrice: "3 950 грн.",
+        firstPrice: "4 950 грн.",
         secondPriceDescr: "Київ - Буковель - ",
-        secondPrice: "2 450 грн.",
+        secondPrice: "2 850 грн.",
         thirdPriceDescr: "Буковель - Київ - ",
-        thirdPrice: "2 450 грн.",
+        thirdPrice: "2 850 грн.",
       },
       inStock: true,
       message: "Місць немає",
@@ -102,11 +95,11 @@ document.addEventListener("DOMContentLoaded", () => {
         "На зворотньому шляху: Виїзд з Буковеля о 9:00 Прибуття у Львів на зд вокзал 14:00 - 15:00 (приблизний час)",
       price: {
         firstPriceDescr: "В дві сторони - ",
-        firstPrice: "2 750 грн.",
+        firstPrice: "3 450 грн.",
         secondPriceDescr: "Львів - Буковель - ",
-        secondPrice: "1 550 грн.",
+        secondPrice: "1 850 грн.",
         thirdPriceDescr: "Буковель - Львів - ",
-        thirdPrice: "1 550 грн.",
+        thirdPrice: "1 850 грн.",
       },
       inStock: true,
       message: "Місць немає",
@@ -125,11 +118,11 @@ document.addEventListener("DOMContentLoaded", () => {
         "На зворотньому шляху: Виїзд з Буковеля о 9:00 в Івано-Франківськ на залізничний вокзал 10:30 - 11:00",
       price: {
         firstPriceDescr: "В дві сторони - ",
-        firstPrice: "1 200 грн.",
+        firstPrice: "1 500 грн.",
         secondPriceDescr: "Франківськ - Буковель - ",
-        secondPrice: "700 грн.",
+        secondPrice: "800 грн.",
         thirdPriceDescr: "Буковель - Франківськ - ",
-        thirdPrice: "700 грн.",
+        thirdPrice: "800 грн.",
       },
       inStock: true,
       message: "Місць немає",
@@ -150,15 +143,15 @@ document.addEventListener("DOMContentLoaded", () => {
       input: `
             <legend>Напрямок</legend>
             <div class="form__way-input">
-                <input type="radio" id="way-both" value="Київ - Буковель - Київ" name="Напрямок" data-price="3950" data-way >
+                <input type="radio" id="way-both" value="Київ - Буковель - Київ" name="Напрямок" data-price="4950" data-way >
                 <label for="way-both">Київ - Буковель - Київ</label>
             </div>
             <div class="form__way-input">
-                <input type="radio" id="way-kyiv-bukovel" value="Київ - Буковель" name="Напрямок" data-price="2450" data-way >
+                <input type="radio" id="way-kyiv-bukovel" value="Київ - Буковель" name="Напрямок" data-price="2850" data-way >
                 <label for="way-kyiv-bukovel">Київ - Буковель</label>
             </div>
             <div class="form__way-input">
-                <input type="radio" id="way-bukovel-kyiv" value="Буковель - Київ" name="Напрямок" data-price="2450" data-way >
+                <input type="radio" id="way-bukovel-kyiv" value="Буковель - Київ" name="Напрямок" data-price="2850" data-way >
                 <label for="way-bukovel-kyiv">Буковель - Київ</label>
             </div>
             `,
@@ -168,15 +161,15 @@ document.addEventListener("DOMContentLoaded", () => {
       input: `
             <legend>Напрямок</legend>
             <div class="form__way-input">
-                <input type="radio" id="way-both" value="Львів - Буковель - Львів" name="Напрямок" data-price="2750" data-way>
+                <input type="radio" id="way-both" value="Львів - Буковель - Львів" name="Напрямок" data-price="3450" data-way>
                 <label for="way-both">Львів - Буковель - Львів</label>
             </div>
             <div class="form__way-input">
-                <input type="radio" id="way-lviv-bukovel" value="Львів - Буковель" name="Напрямок" data-price="1550" data-way>
+                <input type="radio" id="way-lviv-bukovel" value="Львів - Буковель" name="Напрямок" data-price="1850" data-way>
                 <label for="way-lviv-bukovel">Львів - Буковель</label>
             </div>
             <div class="form__way-input">
-                <input type="radio" id="way-bukovel-lviv" value="Буковель - Львів" name="Напрямок" data-price="1550" data-way>
+                <input type="radio" id="way-bukovel-lviv" value="Буковель - Львів" name="Напрямок" data-price="1850" data-way>
                 <label for="way-bukovel-lviv">Буковель - Львів</label>
             </div>
             `,
@@ -186,15 +179,15 @@ document.addEventListener("DOMContentLoaded", () => {
       input: `
             <legend>Напрямок</legend>
             <div class="form__way-input">
-                <input type="radio" id="way-both" value="Франківськ - Буковель - Франківськ" name="Напрямок" data-price="1200" data-way>
+                <input type="radio" id="way-both" value="Франківськ - Буковель - Франківськ" name="Напрямок" data-price="1500" data-way>
                 <label for="way-both">Франківськ - Буковель - Франківськ</label>
             </div>
             <div class="form__way-input">
-                <input type="radio" id="way-if-bukovel" value="Франківськ - Буковель" name="Напрямок" data-price="700" data-way>
+                <input type="radio" id="way-if-bukovel" value="Франківськ - Буковель" name="Напрямок" data-price="800" data-way>
                 <label for="way-if-bukovel">Івано-Франківськ - Буковель</label>
             </div>
             <div class="form__way-input">
-                <input type="radio" id="way-bukovel-if" value="Буковель - Франківськ" name="Напрямок" data-price="700" data-way>
+                <input type="radio" id="way-bukovel-if" value="Буковель - Франківськ" name="Напрямок" data-price="800" data-way>
                 <label for="way-bukovel-if">Буковель - Івано-Франківськ</label>
             </div>
             `,
@@ -245,30 +238,30 @@ document.addEventListener("DOMContentLoaded", () => {
       createCampDateLegend(),
       createCampDate("07.06.2024-20.06.2024", "camp-1", false),
       createCampDate("21.06.2024-04.07.2024", "camp-2", false),
-      createCampDate("05.07.2024-18.07.2024", "camp-3", true),
-      createCampDate("19.07.2024-01.08.2024", "camp-4", true),
-      createCampDate("02.08.2024-15.08.2024", "camp-5", true),
-      createCampDate("16.08.2024-29.08.2024", "camp-6", true),
-      createCampDate("30.08.2024-08.09.2024", "camp-7", true),
+      createCampDate("05.07.2024-18.07.2024", "camp-3", false),
+      createCampDate("19.07.2024-01.08.2024", "camp-4", false),
+      createCampDate("02.08.2024-15.08.2024", "camp-5", false),
+      createCampDate("16.08.2024-29.08.2024", "camp-6", false),
+      createCampDate("30.08.2024-08.09.2024", "camp-7", false),
     ],
     [
       createCampDateLegend(),
       createCampDate("07.06.2024-20.06.2024", "camp-1", false),
       createCampDate("21.06.2024-04.07.2024", "camp-2", false),
-      createCampDate("05.07.2024-18.07.2024", "camp-3", true),
-      createCampDate("19.07.2024-01.08.2024", "camp-4", true),
-      createCampDate("02.08.2024-15.08.2024", "camp-5", true),
-      createCampDate("16.08.2024-29.08.2024", "camp-6", true),
-      createCampDate("30.08.2024-08.09.2024", "camp-7", true),
+      createCampDate("05.07.2024-18.07.2024", "camp-3", false),
+      createCampDate("19.07.2024-01.08.2024", "camp-4", false),
+      createCampDate("02.08.2024-15.08.2024", "camp-5", false),
+      createCampDate("16.08.2024-29.08.2024", "camp-6", false),
+      createCampDate("30.08.2024-08.09.2024", "camp-7", false),
     ],
     [
       createCampDateLegend(),
       createCampDate("07.06.2024-20.06.2024", "camp-1", false),
       createCampDate("21.06.2024-04.07.2024", "camp-2", false),
-      createCampDate("05.07.2024-18.07.2024", "camp-3", true),
-      createCampDate("19.07.2024-01.08.2024", "camp-4", true),
-      createCampDate("02.08.2024-15.08.2024", "camp-5", true),
-      createCampDate("16.08.2024-29.08.2024", "camp-6", true),
+      createCampDate("05.07.2024-18.07.2024", "camp-3", false),
+      createCampDate("19.07.2024-01.08.2024", "camp-4", false),
+      createCampDate("02.08.2024-15.08.2024", "camp-5", false),
+      createCampDate("16.08.2024-29.08.2024", "camp-6", false),
       createCampDate("30.08.2024-08.09.2024", "camp-7", true),
     ],
   ];

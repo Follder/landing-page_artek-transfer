@@ -26,16 +26,16 @@ const createTrainItem = (station, timeArrived, timaAway, isBold) => {
 
 const createTrainTable = (
   title,
-  [station1, to1, from1, isBold1],
-  [station2, to2, from2, isBold2],
-  [station3, to3, from3, isBold3],
-  [station4, to4, from4, isBold4],
-  [station5, to5, from5, isBold5],
-  [station6, to6, from6, isBold6],
-  [station7, to7, from7, isBold7],
-  [station8, to8, from8, isBold8],
-  [station9, to9, from9, isBold9],
-  [station10, to10, from10, isBold10]
+  [station1, to1, from1, isBold1] = [],
+  [station2, to2, from2, isBold2] = [],
+  [station3, to3, from3, isBold3] = [],
+  [station4, to4, from4, isBold4] = [],
+  [station5, to5, from5, isBold5] = [],
+  [station6, to6, from6, isBold6] = [],
+  [station7, to7, from7, isBold7] = [],
+  [station8, to8, from8, isBold8] = [],
+  [station9, to9, from9, isBold9] = [],
+  [station10, to10, from10, isBold10] = []
 ) => {
   const table = document.createElement("div");
   table.classList.add("train");
