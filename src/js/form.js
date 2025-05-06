@@ -1,6 +1,8 @@
-window.addEventListener("DOMContentLoaded", () => {
-  //const URL = 'https://script.google.com/macros/s/AKfycbzCFVPE48nCaLfiRYJjKXTrUlAo5pM39bNJSraIklb15sqNkNlAeeWLImkiYzWgVr5L/exec'
-  // const URL = 'https://script.google.com/macros/s/AKfycbzqkGNf2Dj0tqo2KExAd_uXLub3pGUj_VuCT26CFXuBvaEnGiGz521ZXcGJXCMAYuxCjQ/exec'
+"use strict";
+
+import createTrainTable from './utils/createTrainTable.js'
+
+document.addEventListener("DOMContentLoaded", () => {
   const URL =
     "https://script.google.com/macros/s/AKfycbzFFVNAB0c7W9BRZOp7fyXeelxG-ckea8vbVeEQZjFY_8ggYbJVnn9aPlM5Vqh_P7Vu5Q/exec";
   const modal = document.querySelector("[data-modal]");
@@ -15,6 +17,124 @@ window.addEventListener("DOMContentLoaded", () => {
     failerImg: "img/modal/error-icon.png",
     failerDescr: "Щось пішло не так, спробуйте пізніше",
   };
+
+  const transferCards = [
+    {
+      title: "Трансфер Київ",
+      isTrain: true,
+      isBus: false,
+      img: "train",
+      description: "Проїзд у вагоні купе потягом:",
+      trainToTheCamp: {
+        toTheCamp: "до табору потяг:",
+        trainNumber: "№95",
+        trainLink:
+          "https://uz.gov.ua/passengers/timetable/?ntrain=70824&by_id=1",
+        startCity: "Київ",
+        startTime: "20:28",
+        endCity: "Татарів-Буковель",
+        endTime: "08:38",
+        toTrainTable: createTrainTable(
+          "Київ - Татарів-Буковель",
+          ["Київ-Пас.", "--", "20 : 29", true],
+          ["Бердичів", "22 : 40", "22 : 42", false],
+          ["Львів", "03 : 18", "03 : 38", false],
+          ["Івано-Франківськ", "05 : 52", "06 : 08", false],
+          ["Яремче", "07 : 36", "07 : 39", false],
+          ["Татарів-Буковель", "08 : 05", "08 : 08", true],
+          ["Ворохта", "08 : 23", "08 : 25", false],
+          ["Ясіня", "09 : 04", "09 : 07", false],
+          ["Кваси", "09 : 27", "09 : 29", false],
+          ["Рахів", "09 : 50", "--", false]
+        ),
+      },
+      trainFromTheCamp: {
+        fromTheCamp: "з табору потяг:",
+        trainNumber: "№96",
+        trainLink:
+          "https://uz.gov.ua/passengers/timetable/?ntrain=70824&by_id=1",
+        startCity: "Татарів-Буковель",
+        startTime: "20:10",
+        endCity: "Київ",
+        endTime: "09:01",
+        fromTrainTable: createTrainTable(
+          "Татарів-Буковель - Київ",
+          ["Рахів", "--", "18 : 16", false],
+          ["Кваси", "18 : 41", "18 : 44", false],
+          ["Ясіня", "19 : 08", "19 : 11", false],
+          ["Ворохта", "19 : 53", "19 : 57", false],
+          ["Татарів-Буковель", "20 : 07", "20 : 10", true],
+          ["Яремче", "20 : 35", "20 : 38", false ],
+          ["Івано-Франківськ", "21 : 55", "22 : 23", false],
+          ["Львів", "00 : 45", "01 : 12", false],
+          ["Бердичів", "06 : 28", "06 : 30", false],
+          ["Київ-Пас.", "09 : 01", "--", true]
+        ),
+      },
+      attention:
+        "Номер потяга та станція може змінюватися. При будь-яких змінах ми вас повідомимо завчасно.",
+      firstBenefit:
+        "Проїзд приватним автобусом з вокзалу до табору та назад (15 км).",
+      secondBenefit: "Супровід педагогами-організаторами на всьому шляху.",
+      thirdBenefit: "Харчування на зворотному шляху (обід у таборі та вечеря)",
+      price: {
+        firstPriceDescr: "В дві сторони - ",
+        firstPrice: "3 950 грн.",
+        secondPriceDescr: "Київ - Буковель - ",
+        secondPrice: "2 450 грн.",
+        thirdPriceDescr: "Буковель - Київ - ",
+        thirdPrice: "2 450 грн.",
+      },
+      inStock: true,
+      message: "Місць немає",
+    },
+    {
+      title: "Трансфер Львів",
+      isTrain: false,
+      isBus: true,
+      img: "bus",
+      description: "Проїзд автобусом у супроводі педагогів-організаторів.",
+      trainToTheCamp: {},
+      trainFromTheCamp: {},
+      busToTheCamp:
+        "Виїзд від центрального залізничного вокзалу м. Львів о 8:00 в день початку табірної зміни.",
+      busFromTheCamp:
+        "На зворотньому шляху: Виїзд з Буковеля о 9:00 Прибуття у Львів на зд вокзал 14:00 - 15:00 (приблизний час)",
+      price: {
+        firstPriceDescr: "В дві сторони - ",
+        firstPrice: "2 750 грн.",
+        secondPriceDescr: "Львів - Буковель - ",
+        secondPrice: "1 550 грн.",
+        thirdPriceDescr: "Буковель - Львів - ",
+        thirdPrice: "1 550 грн.",
+      },
+      inStock: true,
+      message: "Місць немає",
+    },
+    {
+      title: "Трансфер Івано-Франківськ",
+      isTrain: false,
+      isBus: true,
+      img: "bus",
+      description: "Проїзд автобусом у супроводі педагогів-організаторів.",
+      trainToTheCamp: {},
+      trainFromTheCamp: {},
+      busToTheCamp:
+        "Виїзд від центрального залізничного вокзалу м. Івано-Франківськ о 10:30 в день початку табірної зміни.",
+      busFromTheCamp:
+        "На зворотньому шляху: Виїзд з Буковеля о 9:00 в Івано-Франківськ на залізничний вокзал 10:30 - 11:00",
+      price: {
+        firstPriceDescr: "В дві сторони - ",
+        firstPrice: "1 200 грн.",
+        secondPriceDescr: "Франківськ - Буковель - ",
+        secondPrice: "700 грн.",
+        thirdPriceDescr: "Буковель - Франківськ - ",
+        thirdPrice: "700 грн.",
+      },
+      inStock: true,
+      message: "Місць немає",
+    },
+  ];
 
   const notes = [
     {
@@ -81,213 +201,77 @@ window.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-  const transfersCampDate = [
-    {
-      title: "Київ",
-      input: `
-      <legend>Дата заїзду</legend>
-      <div class="form__camp-input">
-        <input type="checkbox" value="07.06.2024-20.06.2024" id="camp-1" data-checkbox> <label
-          for="camp-1">07.06.2024-20.06.2024</label>
-      </div>
-      <div class="form__camp-input">
-        <input type="checkbox" value="21.06.2024-04.07.2024" id="camp-2" data-checkbox> <label
-          for="camp-2">21.06.2024-04.07.2024</label>
-      </div>
-      <div class="form__camp-input">
-        <input type="checkbox" value="05.07.2024-18.07.2024" id="camp-3" data-checkbox> <label
-          for="camp-3">05.07.2024-18.07.2024</label>
-      </div>
-      <div class="form__camp-input">
-        <input type="checkbox" value="19.07.2024-01.08.2024" id="camp-4" data-checkbox> <label
-          for="camp-4">19.07.2024-01.08.2024</label>
-      </div>
-      <div class="form__camp-input">
-        <input type="checkbox" value="02.08.2024-15.08.2024" id="camp-5" data-checkbox> <label
-          for="camp-5">02.08.2024-15.08.2024</label>
-      </div>
-      <div class="form__camp-input">
-        <input type="checkbox" value="16.08.2024-29.08.2024" id="camp-6" data-checkbox> <label
-          for="camp-6">16.08.2024-29.08.2024</label>
-      </div>
-      <div class="form__camp-input">
-        <input type="checkbox" value="30.08.2024-08.09.2024" id="camp-7" data-checkbox> <label
-          for="camp-7">30.08.2024-08.09.2024</label>
-      </div>
-    `,
-    },
-    {
-      title: "Львів",
-      input: `
-      <legend>Дата заїзду</legend>
-      <div class="form__camp-input">
-        <input type="checkbox" value="07.06.2024-20.06.2024" id="camp-1" data-checkbox disabled>
-          <label
-            for="camp-1" class="campDisabled">07.06.2024-20.06.2024
-            <span class="campDisabledSpan">(квитки продано)</span>
-          </label>
-      </div>
-      <div class="form__camp-input">
-        <input type="checkbox" value="21.06.2024-04.07.2024" id="camp-2" data-checkbox> <label
-          for="camp-2">21.06.2024-04.07.2024</label>
-      </div>
-      <div class="form__camp-input">
-        <input type="checkbox" value="05.07.2024-18.07.2024" id="camp-3" data-checkbox> <label
-          for="camp-3">05.07.2024-18.07.2024</label>
-      </div>
-      <div class="form__camp-input">
-        <input type="checkbox" value="19.07.2024-01.08.2024" id="camp-4" data-checkbox> <label
-          for="camp-4">19.07.2024-01.08.2024</label>
-      </div>
-      <div class="form__camp-input">
-        <input type="checkbox" value="02.08.2024-15.08.2024" id="camp-5" data-checkbox> <label
-          for="camp-5">02.08.2024-15.08.2024</label>
-      </div>
-      <div class="form__camp-input">
-        <input type="checkbox" value="16.08.2024-29.08.2024" id="camp-6" data-checkbox> <label
-          for="camp-6">16.08.2024-29.08.2024</label>
-      </div>
-      <div class="form__camp-input">
-        <input type="checkbox" value="30.08.2024-08.09.2024" id="camp-7" data-checkbox> <label
-          for="camp-7">30.08.2024-08.09.2024</label>
-      </div>
-    `,
-    },
-    {
-      title: "Івано-Франківськ",
-      input: `
-      <legend>Дата заїзду</legend>
-      <div class="form__camp-input">
-        <input type="checkbox" value="07.06.2024-20.06.2024" id="camp-1" data-checkbox> <label
-          for="camp-1">07.06.2024-20.06.2024</label>
-      </div>
-      <div class="form__camp-input">
-        <input type="checkbox" value="21.06.2024-04.07.2024" id="camp-2" data-checkbox> <label
-          for="camp-2">21.06.2024-04.07.2024</label>
-      </div>
-      <div class="form__camp-input">
-        <input type="checkbox" value="05.07.2024-18.07.2024" id="camp-3" data-checkbox> <label
-          for="camp-3">05.07.2024-18.07.2024</label>
-      </div>
-      <div class="form__camp-input">
-        <input type="checkbox" value="19.07.2024-01.08.2024" id="camp-4" data-checkbox> <label
-          for="camp-4">19.07.2024-01.08.2024</label>
-      </div>
-      <div class="form__camp-input">
-        <input type="checkbox" value="02.08.2024-15.08.2024" id="camp-5" data-checkbox> <label
-          for="camp-5">02.08.2024-15.08.2024</label>
-      </div>
-      <div class="form__camp-input">
-        <input type="checkbox" value="16.08.2024-29.08.2024" id="camp-6" data-checkbox> <label
-          for="camp-6">16.08.2024-29.08.2024</label>
-      </div>
-      <div class="form__camp-input">
-        <input type="checkbox" value="30.08.2024-08.09.2024" id="camp-7" data-checkbox> <label
-          for="camp-7">30.08.2024-08.09.2024</label>
-      </div>
-    `,
-    },
-  ];
+  const createCampDate = (value, id, isInStock) => {
+    const camp = document.createElement("div");
+    camp.classList.add("form__camp-input");
 
-  const transfer = [
-    {
-      title: "Трансфер Київ",
-      isTrain: true,
-      isBus: false,
-      img: "train",
-      description: "Проїзд у вагоні купе потягом:",
-      trainToTheCamp: {
-        toTheCamp: "до табору потяг:",
-        trainNumber: "№95",
-        trainLink:
-          "https://uz.gov.ua/passengers/timetable/?ntrain=75988&by_id=1",
-        startCity: "Київ",
-        startTime: "20:28",
-        endCity: "Татарів-Буковель",
-        endTime: "08:38",
-      },
-      trainFromTheCamp: {
-        fromTheCamp: "з табору потяг:",
-        trainNumber: "№96",
-        trainLink:
-          "https://uz.gov.ua/passengers/timetable/?ntrain=70824&by_id=1",
-        startCity: "Татарів-Буковель",
-        startTime: "20:10",
-        endCity: "Київ",
-        endTime: "09:01",
-      },
-      firstBenefit:
-        "Проїзд приватним автобусом з вокзалу до табору та назад (15 км).",
-      secondBenefit: "Супровід педагогами-організаторами на всьому шляху.",
-      thirdBenefit: "Харчування на зворотному шляху (обід у таборі та вечеря)",
-      price: {
-        firstPriceDescr: "В дві сторони - ",
-        firstPrice: "3 950 грн.",
-        secondPriceDescr: "Київ - Буковель - ",
-        secondPrice: "2 450 грн.",
-        thirdPriceDescr: "Буковель - Київ - ",
-        thirdPrice: "2 450 грн.",
-      },
-      inStock: true,
-      message: "Місць немає",
-    },
-    {
-      title: "Трансфер Львів",
-      isTrain: false,
-      isBus: true,
-      img: "bus",
-      description: "Проїзд автобусом у супроводі педагогів-організаторів.",
-      trainToTheCamp: {},
-      trainFromTheCamp: {},
-      busToTheCamp:
-        "Виїзд від центрального залізничного вокзалу м. Львів о 8:00 в день початку табірної зміни.",
-      busFromTheCamp:
-        "На зворотньому шляху: Виїзд з Буковеля о 9:00 Прибуття у Львів на зд вокзал 14:00 - 15:00 (приблизний час)",
-      price: {
-        firstPriceDescr: "В дві сторони - ",
-        firstPrice: "2 750 грн.",
-        secondPriceDescr: "Львів - Буковель - ",
-        secondPrice: "1 550 грн.",
-        thirdPriceDescr: "Буковель - Львів - ",
-        thirdPrice: "1 550 грн.",
-      },
-      inStock: true,
-      message: "Місць немає",
-    },
-    {
-      title: "Трансфер Івано-Франківськ",
-      isTrain: false,
-      isBus: true,
-      img: "bus",
-      description: "Проїзд автобусом у супроводі педагогів-організаторів.",
-      trainToTheCamp: {},
-      trainFromTheCamp: {},
-      busToTheCamp:
-        "Виїзд від центрального залізничного вокзалу м. Івано-Франківськ о 10:30 в день початку табірної зміни.",
-      busFromTheCamp:
-        "На зворотньому шляху: Виїзд з Буковеля о 9:00 в Івано-Франківськ на залізничний вокзал 10:30 - 11:00",
-      price: {
-        firstPriceDescr: "В дві сторони - ",
-        firstPrice: "1 200 грн.",
-        secondPriceDescr: "Франківськ - Буковель - ",
-        secondPrice: "700 грн.",
-        thirdPriceDescr: "Буковель - Франківськ - ",
-        thirdPrice: "700 грн.",
-      },
-      inStock: true,
-      message: "Місць немає",
-    },
-  ];
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.value = value;
+    input.id = id;
+    input.setAttribute("data-checkbox", true);
 
-  const getResourse = async (url) => {
-    const res = await fetch(url);
+    camp.append(input);
 
-    if (!res.ok) {
-      throw new Error(`Could not fetch ${url}, status: ${res.status}`);
-    } else {
-      return res.json();
+    const label = document.createElement("label");
+    label.setAttribute("for", id);
+    label.textContent = value;
+    label.style = "margin-left: 5px";
+    camp.append(label);
+
+    if (!isInStock) {
+      input.setAttribute("disabled", true);
+      label.classList.add("campDisabled");
+
+      const span = document.createElement("span");
+      span.classList.add("campDisabled");
+      span.classList.add("campDisabledSpan");
+      span.textContent = "(квитки продано)";
+      camp.append(span);
     }
+
+    return camp;
   };
+
+  const createCampDateLegend = () => {
+    const legend = document.createElement("legend");
+    legend.textContent = "Дата заїзду";
+
+    return legend;
+  };
+
+  const CAMP_DATES = [
+    [
+      createCampDateLegend(),
+      createCampDate("07.06.2024-20.06.2024", "camp-1", false),
+      createCampDate("21.06.2024-04.07.2024", "camp-2", false),
+      createCampDate("05.07.2024-18.07.2024", "camp-3", true),
+      createCampDate("19.07.2024-01.08.2024", "camp-4", true),
+      createCampDate("02.08.2024-15.08.2024", "camp-5", true),
+      createCampDate("16.08.2024-29.08.2024", "camp-6", true),
+      createCampDate("30.08.2024-08.09.2024", "camp-7", true),
+    ],
+    [
+      createCampDateLegend(),
+      createCampDate("07.06.2024-20.06.2024", "camp-1", false),
+      createCampDate("21.06.2024-04.07.2024", "camp-2", false),
+      createCampDate("05.07.2024-18.07.2024", "camp-3", true),
+      createCampDate("19.07.2024-01.08.2024", "camp-4", true),
+      createCampDate("02.08.2024-15.08.2024", "camp-5", true),
+      createCampDate("16.08.2024-29.08.2024", "camp-6", true),
+      createCampDate("30.08.2024-08.09.2024", "camp-7", true),
+    ],
+    [
+      createCampDateLegend(),
+      createCampDate("07.06.2024-20.06.2024", "camp-1", false),
+      createCampDate("21.06.2024-04.07.2024", "camp-2", false),
+      createCampDate("05.07.2024-18.07.2024", "camp-3", true),
+      createCampDate("19.07.2024-01.08.2024", "camp-4", true),
+      createCampDate("02.08.2024-15.08.2024", "camp-5", true),
+      createCampDate("16.08.2024-29.08.2024", "camp-6", true),
+      createCampDate("30.08.2024-08.09.2024", "camp-7", true),
+    ],
+  ];
 
   class Card {
     constructor(
@@ -303,6 +287,7 @@ window.addEventListener("DOMContentLoaded", () => {
       toStartTime,
       toEndCity,
       toEndTime,
+      toTrainTable,
       fromTheCamp,
       fromTrainNumber,
       fromTrainLink,
@@ -310,8 +295,10 @@ window.addEventListener("DOMContentLoaded", () => {
       fromStartTime,
       fromEndCity,
       fromEndTime,
+      fromTrainTable,
       busToTheCamp,
       busFromTheCamp,
+      attention,
       firstBenefit,
       secondBenefit,
       thirdBenefit,
@@ -346,13 +333,15 @@ window.addEventListener("DOMContentLoaded", () => {
         this.toStartTime = toStartTime;
         this.toEndCity = toEndCity;
         this.toEndTime = toEndTime;
-        (this.fromTheCamp = fromTheCamp),
-          (this.fromTrainNumber = fromTrainNumber);
+        this.toTrainTable = toTrainTable;
+        this.fromTheCamp = fromTheCamp;
+        this.fromTrainNumber = fromTrainNumber;
         this.fromTrainLink = fromTrainLink;
         this.fromStartCity = fromStartCity;
         this.fromStartTime = fromStartTime;
         this.fromEndCity = fromEndCity;
         this.fromEndTime = fromEndTime;
+        this.fromTrainTable = fromTrainTable;
       } else {
         this.toTheCamp = "";
         this.toTrainNumber = "";
@@ -361,12 +350,15 @@ window.addEventListener("DOMContentLoaded", () => {
         this.toStartTime = "";
         this.toEndCity = "";
         this.toEndTime = "";
-        (this.fromTheCamp = ""), (this.fromTrainNumber = "");
+        this.toTrainTable = "";
+        this.fromTheCamp = "";
+        this.fromTrainNumber = "";
         this.fromTrainLink = "#";
         this.fromStartCity = "";
         this.fromStartTime = "";
         this.fromEndCity = "";
         this.fromEndTime = "";
+        this.fromTrainTable = "";
       }
 
       if (isBus) {
@@ -376,6 +368,8 @@ window.addEventListener("DOMContentLoaded", () => {
         this.busToTheCamp = "";
         this.busFromTheCamp = "";
       }
+
+      attention ? (this.attention = attention) : (this.attention = "");
 
       if (firstBenefit) {
         this.firstBenefit = firstBenefit;
@@ -414,19 +408,25 @@ window.addEventListener("DOMContentLoaded", () => {
       div.innerHTML = `
                 <img src="img/order/${this.img}.jpg" alt="${this.img}" class="orders__card-image">
                 <h3 class="orders__card-title">${this.title}</h3>
+
                 <div class="orders__card-descr">${this.descr}</div>
                 <div class="divider"></div>
                 <div class="orders__card-descr">
                     ${this.toTheCamp}
-                    <a href="${this.toTrainLink}" target="_blank">${this.toTrainNumber}</a> <br>
+                    <span class="orders__train-number" id="toTrainNumber">${this.toTrainNumber}</span> <br>
                     ${this.toStartCity} <span class="strong">${this.toStartTime}</span> - ${this.toEndCity} <span class="strong">${this.toEndTime}</span>
                     ${this.busToTheCamp}
+                    <div class="orders__card-table_to">${this.toTrainTable}</div>
                 </div>
                 <div class="orders__card-descr">
                     ${this.fromTheCamp}
-                    <a href="${this.fromTrainLink}" target="_blank">${this.fromTrainNumber}</a> <br>
+                    <span class="orders__train-number" id="fromTrainNumber">${this.fromTrainNumber}</span> <br>
                     ${this.fromStartCity} <span class="strong">${this.fromStartTime}</span> - ${this.fromEndCity} <span class="strong">${this.fromEndTime}</span>
                     ${this.busFromTheCamp}
+                    <div class="orders__card-table_from">${this.fromTrainTable}</div>
+                </div>
+                <div class="orders__card-attention">
+                  ${this.attention}
                 </div>
                 <div class="divider"></div>
                 <div class="orders__card-descr">${this.firstBenefit}</div>
@@ -453,66 +453,174 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  getResourse("db/db.json")
-    .then((data) =>
-      data.transfer.forEach((obj) => {
-        new Card(
-          obj.title,
-          obj.isTrain,
-          obj.isBus,
-          obj.img,
-          obj.description,
-          obj.trainToTheCamp.toTheCamp,
-          obj.trainToTheCamp.trainNumber,
-          obj.trainToTheCamp.trainLink,
-          obj.trainToTheCamp.startCity,
-          obj.trainToTheCamp.startTime,
-          obj.trainToTheCamp.endCity,
-          obj.trainToTheCamp.endTime,
-          obj.trainFromTheCamp.fromTheCamp,
-          obj.trainFromTheCamp.trainNumber,
-          obj.trainFromTheCamp.trainLink,
-          obj.trainFromTheCamp.startCity,
-          obj.trainFromTheCamp.startTime,
-          obj.trainFromTheCamp.endCity,
-          obj.trainFromTheCamp.endTime,
-          obj.busToTheCamp,
-          obj.busFromTheCamp,
-          obj.firstBenefit,
-          obj.secondBenefit,
-          obj.thirdBenefit,
-          obj.price.firstPriceDescr,
-          obj.price.firstPrice,
-          obj.price.secondPriceDescr,
-          obj.price.secondPrice,
-          obj.price.thirdPriceDescr,
-          obj.price.thirdPrice,
-          obj.inStock,
-          obj.message,
-          '<a href="#" class="btn orders__btn" data-order>Забронювати</a>'
-        ).render();
-      })
-    )
-    .then(() => {
-      const btns = document.querySelectorAll(".orders__btn");
-      btns.forEach((btn, i) => {
-        btn.addEventListener("click", (e) => {
-          e.preventDefault();
-
-          modal.querySelector(".modal__title").textContent =
-            transfersWay[i].title;
-          modal.querySelector("#formCamp").innerHTML =
-            transfersCampDate[i].input;
-          modal.querySelector("#formWay").innerHTML = transfersWay[i].input;
-          modal.querySelector("#customNotes").innerHTML = notes[i].note;
-
-          openModal("[data-modal]");
-        });
-      });
-
-      calculateAmount();
+  const createCards = () => {
+    transferCards.map((transfer) => {
+      new Card(
+        transfer.title,
+        transfer.isTrain,
+        transfer.isBus,
+        transfer.img,
+        transfer.description,
+        transfer.trainToTheCamp.toTheCamp,
+        transfer.trainToTheCamp.trainNumber,
+        transfer.trainToTheCamp.trainLink,
+        transfer.trainToTheCamp.startCity,
+        transfer.trainToTheCamp.startTime,
+        transfer.trainToTheCamp.endCity,
+        transfer.trainToTheCamp.endTime,
+        transfer.trainToTheCamp.toTrainTable,
+        transfer.trainFromTheCamp.fromTheCamp,
+        transfer.trainFromTheCamp.trainNumber,
+        transfer.trainFromTheCamp.trainLink,
+        transfer.trainFromTheCamp.startCity,
+        transfer.trainFromTheCamp.startTime,
+        transfer.trainFromTheCamp.endCity,
+        transfer.trainFromTheCamp.endTime,
+        transfer.trainFromTheCamp.fromTrainTable,
+        transfer.busToTheCamp,
+        transfer.busFromTheCamp,
+        transfer?.attention,
+        transfer.firstBenefit,
+        transfer.secondBenefit,
+        transfer.thirdBenefit,
+        transfer.price.firstPriceDescr,
+        transfer.price.firstPrice,
+        transfer.price.secondPriceDescr,
+        transfer.price.secondPrice,
+        transfer.price.thirdPriceDescr,
+        transfer.price.thirdPrice,
+        transfer.inStock,
+        transfer.message,
+        '<a href="#" class="btn orders__btn" data-order>Забронювати</a>'
+      ).render();
     });
+  };
 
+  const showTrainTable = (
+    trainNumber,
+    trainTable,
+    numberActiveClass,
+    tableActiveClass
+  ) => {
+    const tNumber = document.querySelector(trainNumber);
+    const tTable = document.querySelector(trainTable);
+
+    if (tNumber.classList.contains(numberActiveClass)) {
+      tNumber.classList.remove(numberActiveClass);
+      tTable.classList.remove(tableActiveClass);
+    } else {
+      tNumber.classList.add(numberActiveClass);
+      tTable.classList.add(tableActiveClass);
+    }
+  };
+
+  const createForms = () => {
+    const btns = document.querySelectorAll(".orders__btn");
+
+    btns.forEach((btn, i) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        modal.querySelector(".modal__title").textContent =
+          transfersWay[i].title;
+
+        const campDates = [...CAMP_DATES[i]];
+        modal.querySelector("#formCamp").innerHTML = "";
+        campDates.forEach((camp) =>
+          modal.querySelector("#formCamp").append(camp)
+        );
+
+        modal.querySelector("#formWay").innerHTML = transfersWay[i].input;
+        modal.querySelector("#customNotes").innerHTML = notes[i].note;
+
+        openModal("[data-modal]");
+      });
+    });
+  };
+
+  function changeForm() {
+    const dayOfMonth = document.querySelector("#dayOfMonth"),
+      month = document.querySelector("#month"),
+      year = document.querySelector("#year");
+    let transferDate = [];
+    let amount = 0;
+    let price;
+
+    const handleClick = (e) => {
+      if (e.target.getAttribute("data-price")) {
+        price = +e.target.getAttribute("data-price");
+
+        calcAmount();
+      }
+
+      if (e.target.hasAttribute("data-checkbox")) {
+        const checkboxValue = e.target.value;
+        if (e.target.checked) {
+          if (!transferDate.includes(checkboxValue)) {
+            transferDate.push(checkboxValue);
+          }
+        } else {
+          transferDate = transferDate.filter((item) => item !== checkboxValue);
+        }
+
+        calcAmount();
+      }
+
+      function calcAmount() {
+        if (price && transferDate) {
+          amount = price * transferDate.length;
+        }
+
+        return amount;
+      }
+
+      if (amount) {
+        document.querySelector("#amount").textContent = amount;
+      } else {
+        document.querySelector("#amount").textContent = "____";
+      }
+    };
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      formData.append("Позначка часу", parseDate(new Date()));
+      formData.append("Сума", amount);
+      formData.append("Дата заїзду", transferDate.join("; "));
+      formData.append(
+        "Дата народження",
+        dayOfMonth.value + "-" + month.value + "-" + year.value
+      );
+
+      if (validate() && FormData) {
+        postData(URL, formData)
+          .then((data) => data.text())
+          .then(() =>
+            showThanksModal(
+              message.successTitle,
+              message.successImg,
+              message.successDescr
+            )
+          )
+          .catch(() =>
+            showThanksModal(
+              message.failerTitle,
+              message.failerImg,
+              message.failerDescr
+            )
+          )
+          .finally(form.reset());
+      }
+    };
+
+    form.removeEventListener("click", handleClick);
+    form.removeEventListener("submit", handleSubmit);
+
+    form.addEventListener("click", handleClick);
+    form.addEventListener("submit", handleSubmit);
+  }
   /* burger */
   const burger = document.querySelector(".burger"),
     burgerMenu = document.querySelector(".nav__mobile");
@@ -547,110 +655,6 @@ window.addEventListener("DOMContentLoaded", () => {
     });
     return res;
   }
-
-  function calculateAmount() {
-    const dayOfMonth = document.querySelector("#dayOfMonth"),
-      month = document.querySelector("#month"),
-      year = document.querySelector("#year");
-    const checkboxes = document.querySelectorAll("[data-checkbox]");
-    let amount;
-    let price;
-    let transferDate;
-    let quantity;
-
-    form.addEventListener("click", (e) => {
-      if (e.target.getAttribute("data-price")) {
-        price = +e.target.getAttribute("data-price");
-      }
-
-      console.log(checkboxes);
-
-      transferDate = [];
-
-      checkboxes.forEach((item, i) => {
-        if (item.checked) {
-          transferDate.push(checkboxes[i].getAttribute("value"));
-        }
-      });
-      quantity = transferDate.length;
-      amount = price * quantity;
-
-      if (amount) {
-        document.querySelector("#amount").textContent = amount;
-      } else {
-        document.querySelector("#amount").textContent = "____";
-      }
-    });
-  }
-
-  const dayOfMonth = document.querySelector("#dayOfMonth"),
-    month = document.querySelector("#month"),
-    year = document.querySelector("#year");
-  const checkboxes = document.querySelectorAll("[data-checkbox]");
-  let amount;
-  let price;
-  let transferDate;
-  let quantity;
-
-  form.addEventListener("click", (e) => {
-    if (e.target.getAttribute("data-price")) {
-      price = +e.target.getAttribute("data-price");
-    }
-
-    console.log(checkboxes);
-
-    transferDate = [];
-
-    checkboxes.forEach((item, i) => {
-      if (item.checked) {
-        transferDate.push(checkboxes[i].getAttribute("value"));
-      }
-    });
-    quantity = transferDate.length;
-    amount = price * quantity;
-
-    if (amount) {
-      document.querySelector("#amount").textContent = amount;
-    } else {
-      document.querySelector("#amount").textContent = "____";
-    }
-  });
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-
-    formData.append("Позначка часу", parseDate(new Date()));
-    formData.append("Сума", amount);
-    formData.append("Дата заїзду", transferDate.join("; "));
-    formData.append(
-      "Дата народження",
-      dayOfMonth.value + "-" + month.value + "-" + year.value
-    );
-
-    if (validate()) {
-      postData(URL, formData)
-        .then((data) => data.text())
-        .then(() =>
-          showThanksModal(
-            message.successTitle,
-            message.successImg,
-            message.successDescr
-          )
-        )
-        .catch(() =>
-          showThanksModal(
-            message.failerTitle,
-            message.failerImg,
-            message.failerDescr
-          )
-        )
-        .finally(form.reset());
-    }
-  });
-  form.addEventListener("reset", () => {
-    document.querySelector("#amount").textContent = "____";
-  });
 
   /* Modal */
   let close;
@@ -766,7 +770,6 @@ window.addEventListener("DOMContentLoaded", () => {
       );
       if (!isChecked) {
         validateMessage(message, parentSelector);
-        console.log(selector);
         selector[0].focus();
         return false;
       }
@@ -938,4 +941,28 @@ window.addEventListener("DOMContentLoaded", () => {
       true
     );
   }
+  /* end */
+  //dimka bubka pupka
+
+  createCards();
+  createForms();
+  changeForm();
+
+  document.querySelector("#toTrainNumber").addEventListener("click", () => {
+    showTrainTable(
+      "#toTrainNumber",
+      ".orders__card-table_to",
+      "active",
+      "showTable"
+    );
+  });
+
+  document.querySelector("#fromTrainNumber").addEventListener("click", () => {
+    showTrainTable(
+      "#fromTrainNumber",
+      ".orders__card-table_from",
+      "active",
+      "showTable"
+    );
+  });
 });

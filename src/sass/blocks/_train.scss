@@ -1,0 +1,55 @@
+.train {
+  & > :nth-child(2n) {
+    background-color: #f3f3f3;
+  }
+  &__title {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    margin-block: 10px;
+  }
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 700;
+    gap: 5px;
+
+    text-align: center;
+    :nth-child(1) {
+      text-align: left;
+      flex-grow: 1;
+    }
+    :nth-child(2) {
+      width: 25%;
+    }
+    :nth-child(3) {
+      width: 25%;
+    }
+  }
+  &__line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
+
+    font-size: 14px;
+    text-align: center;
+    font-weight: 400;
+    :nth-child(1) {
+      text-align: left;
+      flex-grow: 1;
+    }
+    :nth-child(2) {
+      width: 25%;
+    }
+    :nth-child(3) {
+      width: 25%;
+    }
+    &_bold {
+      font-weight: 700;
+    }
+  }
+}

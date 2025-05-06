@@ -1,6 +1,24 @@
 .orders {
     padding: 15px 0 55px 0;
     color: $text-color;
+    &__train-number {
+      cursor: pointer;
+      color: #008cff;
+      text-decoration: underline;
+    }
+    &__card-table_to, &__card-table_from {
+      position: relative;
+      height: 0;
+      opacity: 0;
+      transition: .3s all;
+      z-index: -1;
+
+      &.showTable {
+        opacity: 1;
+        height: fit-content;
+        z-index: 1;
+      } 
+    }
     &__wrapper {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -25,6 +43,14 @@
             font-weight: 400;
             line-height: 22px;
             margin-top: 15px;
+        }
+        &-attention {
+          margin-top: 15px;
+          font-size: 14px;
+          padding: 10px 0;
+          // background-color: #fff01e;
+          border-radius: 5px;
+          color: #ff2d2d
         }
         &-price-title {
             font-weight: 700;
