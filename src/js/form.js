@@ -399,7 +399,6 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.textContent = "Забронювати";
 
       const div = document.createElement("div");
-      console.log(this.id);
       div.id = this.id;
       div.classList.add("orders__card");
       div.innerHTML = `
@@ -621,7 +620,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   /* burger */
   const burger = document.querySelector(".promo__burger");
-  const navBurger = document.querySelector(".nav__header");
+  const navBurger = document.querySelector(".nav__burger");
   const burgerMenu = document.querySelector(".nav");
 
   burger.addEventListener("click", () => {
@@ -632,6 +631,31 @@ document.addEventListener("DOMContentLoaded", () => {
   navBurger.addEventListener("click", () => {
     burger.classList.remove("promo__burger_active");
     burgerMenu.classList.remove("nav_active");
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // Закриваємо мобільне меню
+      burger.classList.remove('promo__burger_active');
+      burgerMenu.classList.remove('nav_active');
+
+      // Плавна прокрутка
+      const targetId = this.getAttribute('href').slice(1);
+      const targetEl = document.getElementById(targetId);
+
+      if (!targetEl) return;
+
+      const headerOffset = 80; // зміни за потреби
+      const elementPosition = targetEl.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    });
   });
 
   /* form */
@@ -716,6 +740,7 @@ document.addEventListener("DOMContentLoaded", () => {
     closeLine = document.querySelectorAll(".close__line");
 
   window.addEventListener("click", (e) => {
+    e.stopPropagation();
     if (e.target) {
       if (
         e.target === close ||
@@ -724,12 +749,13 @@ document.addEventListener("DOMContentLoaded", () => {
         e.target === closeLine[1] ||
         e.target === overlay
       ) {
-        closeModal("[data-modal]");
+        setTimeout(() => closeModal("[data-modal]"), 400);
       }
     }
   });
 
   window.addEventListener("touchend", (e) => {
+    e.stopPropagation();
     if (e.target) {
       if (
         e.target === close ||
@@ -738,7 +764,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.target === closeLine[1] ||
         e.target === overlay
       ) {
-        closeModal("[data-modal]");
+        setTimeout(() => closeModal("[data-modal]"), 400);
       }
     }
   });

@@ -350,29 +350,6 @@
   <script type="module" src="js/form.js"></script>
   <!-- <script src="js/script.js"></script> -->
 
-  <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        const targetId = this.getAttribute('href').slice(1);
-        const targetEl = document.getElementById(targetId);
-
-        if (!targetEl) return;
-
-        const headerOffset = 80; // змінити на висоту твого фіксованого header
-
-        const elementPosition = targetEl.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      });
-    });
-
-  </script>
 </body>
 
 </html>
