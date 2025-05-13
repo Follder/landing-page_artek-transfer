@@ -1,40 +1,38 @@
-.btn-main {
-    text-decoration: none;
-    background-color: $buttons-color;
-    color: #fff;
-    border-radius: 100px;
-    padding: 10px 42px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    word-spacing: 4px;
-    transition: all .3s;
-    &:hover {
-        background-color: $hover-color;
-        box-shadow: 0 0 6px rgba(0,0,0, .45);
-    }
-}
+//.btn-main {
+//    text-decoration: none;
+//    background-color: $buttons-color;
+//    color: #fff;
+//    border-radius: 100px;
+//    padding: 10px 42px;
+//    font-family: 'Montserrat', sans-serif;
+//    font-size: 16px;
+//    font-weight: 500;
+//    letter-spacing: 1px;
+//    word-spacing: 4px;
+//    transition: all .3s;
+//    &:hover {
+//        background-color: $hover-color;
+//        box-shadow: 0 0 6px rgba(0,0,0, .45);
+//    }
+//}
 .btn {
     text-decoration: none;
     padding: 8px 42px;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-    font-weight: 500;
-    letter-spacing: 1px;
+    font-weight: 600;
     word-spacing: 4px;
     transition: all .3s;
-    background-color: $buttons-color;
+    background-color: $secondary-color;
     color: #fff;
     display: block;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 50px;
     max-width: 100%;
     margin-top: 25px;
     border: none;
     cursor: pointer;
     &:hover {
-        background-color: $hover-color;
         box-shadow: 0 0 6px rgba(0,0,0, .45);
     }
     &-main {
@@ -45,7 +43,7 @@
         width: auto;
     }
     &__reset {
-        background-color: $grey-color;
+        background-color: $bg-color;
         max-width: 160px;
         margin: 15px auto 0 auto;
         color: $text-color;

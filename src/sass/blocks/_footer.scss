@@ -7,7 +7,7 @@
         color:#fff;
         transition: all .3s;
         &:hover {
-            color: $hover-color;
+            color: $secondary-color;
         }
     }
     .divider {
@@ -40,7 +40,7 @@
                 height: 100%;
                 transition: all .3s;
                 &:hover {
-                    fill: $hover-color;
+                    fill: $secondary-color;
                 }
             }
         }

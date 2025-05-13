@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const transferCards = [
     {
       title: "Трансфер Київ",
+      id: 'book-kiev',
       isTrain: true,
       isBus: false,
       img: "train",
@@ -83,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       title: "Трансфер Львів",
+      id: "book-lviv",
       isTrain: false,
       isBus: true,
       img: "bus",
@@ -106,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       title: "Трансфер Івано-Франківськ",
+      id: "book-if",
       isTrain: false,
       isBus: true,
       img: "bus",
@@ -266,6 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
   class Card {
     constructor(
       title,
+      id,
       isTrain,
       isBus,
       image,
@@ -303,6 +307,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btn
     ) {
       this.title = title;
+      this.id = id;
       this.img = image;
       this.descr = description;
       this.firstPriceDescr = firstPriceDescr;
@@ -394,6 +399,8 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.textContent = "Забронювати";
 
       const div = document.createElement("div");
+      console.log(this.id);
+      div.id = this.id;
       div.classList.add("orders__card");
       div.innerHTML = `
                 <img src="img/order/${this.img}.jpg" alt="${this.img}" class="orders__card-image">
@@ -447,6 +454,7 @@ document.addEventListener("DOMContentLoaded", () => {
     transferCards.map((transfer) => {
       new Card(
         transfer.title,
+        transfer.id,
         transfer.isTrain,
         transfer.isBus,
         transfer.img,
@@ -612,12 +620,18 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", handleSubmit);
   }
   /* burger */
-  const burger = document.querySelector(".burger"),
-    burgerMenu = document.querySelector(".nav__mobile");
+  const burger = document.querySelector(".promo__burger");
+  const navBurger = document.querySelector(".nav__header");
+  const burgerMenu = document.querySelector(".nav");
 
   burger.addEventListener("click", () => {
-    burger.classList.toggle("burger_active");
-    burgerMenu.classList.toggle("nav__mobile_active");
+    burger.classList.add("promo__burger_active");
+    burgerMenu.classList.add("nav_active");
+  });
+
+  navBurger.addEventListener("click", () => {
+    burger.classList.remove("promo__burger_active");
+    burgerMenu.classList.remove("nav_active");
   });
 
   /* form */

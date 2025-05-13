@@ -12,76 +12,47 @@
 
 <body>
   <div class="body__wrapper">
-    <header class="header">
-      <nav class="nav">
-        <div class="container">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <a href="#about" class="nav__item-link">Про трансфер</a>
-            </li>
-            <li class="nav__item">
-              <a href="#benefits" class="nav__item-link">Наші переваги</a>
-            </li>
-            <li class="nav__item">
-              <a href="#orders" class="nav__item-link">Бронювання</a>
-            </li>
-          </ul>
-          <div class="burger__wrapper">
-            <div class="burger__wrapper-title">Трансфер "Артек-Буковель"</div>
-            <div class="burger">
-              <div class="burger__line burger__line_first"></div>
-              <div class="burger__line burger__line_second"></div>
-              <div class="burger__line burger__line_third"></div>
-            </div>
-          </div>
-          <ul class="nav__mobile">
-            <li class="nav__item">
-              <a href="#about" class="nav__item-link">Про трансфер</a>
-            </li>
-            <li class="nav__item">
-              <a href="#benefits" class="nav__item-link">Наші переваги</a>
-            </li>
-            <li class="nav__item">
-              <a href="#orders" class="nav__item-link">Бронювання</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+
+
     <section class="promo">
-      <div class="container">
-        <div class="promo__logo">
-          <img src="img/logo.svg" alt="artek-logo">
+      <div class="nav">
+        <div class="nav__header">
+          <img class="nav__burger" src="./img/burger-close.svg" alt="burger icon">
         </div>
-        <div class="promo__title">Трансфер</div>
-        <div>
-          <a href="#orders" class="btn-main promo__btn">Підібрати трансфер</a>
-        </div>
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#about">Про нас</a></li>
+          <li class="nav__item"><a href="#benefits">Наші переваги</a></li>
+          <li class="nav__item"><a href="#orders">Бронювання</a></li>
+        </ul>
+        <ul class="nav__sublist">
+          <li class="nav__subitem"><a href="tel:+380639288315">+380 63 92 88 315</a></li>
+          <li class="nav__subitem"><a href="mailto:artek.transfer@gmail.com">artek.transfer@gmail.com</a></li>
+          <li class="nav__subitem"><a href="https://bukovel.com/artek" target="_blank">Артек Буковель</a></li>
+        </ul>
+      </div>
+      <div class="promo__burger">
+        <img src="./img/burger-open.svg" alt="burger icon">
       </div>
     </section>
+
     <section class="about" id="about">
       <div class="container">
-        <h1 class="title">Трансфер до дитячого табору "Артек-Буковель"</h1>
-        <div class="about__descr">Пропонуємо послугу для трансферу в табір та з табору до дому!</div>
-        <ul class="about__list">
-          <li class="about__list-item">Ви економите свій час, який мала б займати поїздка до табору.</li>
-          <li class="about__list-item">Вам не доведеться відпрошуватись з роботи чи просити когось знайомого щоб
-            відвезли Ваших дітей.</li>
-          <li class="about__list-item">Вам не доведеться самостійно займатись пошуком транспорту чи квитків, адже ми
-            подбали вже про це за Вас.</li>
-          <li class="about__list-item">Ви економите кошти не купуючи квитки для себе.</li>
-          <li class="about__list-item">Діти мають змогу познайомитись між собою ще під час поїздки до табору та знайти
-            спільні інтереси. Завдяки цьому адаптаційний період для них пройде швидше в колі нових друзів.</li>
-          <li class="about__list-item">Переїзд відбувається вночі, завдяки цьому діти прибудуть на місце виспані та з
-            новими силами.</li>
-          <li class="about__list-item">Вам не доведеться їхати за дітьми до табору по закінченню зміни та відриватись
-            від своїх справ.</li>
-        </ul>
+        <div class="about__wrapper">
+          <h1 class="title">Трансфер до дитячого табору "Артек-Буковель"</h1>
+          <div class="about__descr">Ми знаємо, як цінний Ваш час, тому щозміни пропонуємо організований комфортний трансфер дітей в табір і додому — без зайвого клопоту для батьків</div>
+          <ul class="about__list">
+            <li class="about__list-item">Ви економите свій час, який мала б займати поїздка до табору</li>
+            <li class="about__list-item">Вам не доведеться самостійно займатись пошуком транспорту чи квитків, адже ми подбали вже про це за Вас</li>
+            <li class="about__list-item">Ви економите кошти не купуючи квитки для себе</li>
+            <li class="about__list-item">Діти мають змогу познайомитись між собою ще під час поїздки до табору та знайти спільні інтереси. Завдяки цьому адаптаційний період для них пройде швидше в колі нових друзів.</li>
+            <li class="about__list-item">Вам не доведеться їхати за дітьми до табору по закінченню зміни та відриватись від своїх справ</li>
+          </ul>
+        </div>
       </div>
     </section>
     <section class="benefits" id="benefits">
       <div class="container">
-        <h2 class="title">Наші переваги серед інших компаній</h2>
+        <h2 class="title">Наші переваги</h2>
         <div class="benefits__wrapper">
           <div class="benefits__card">
             <img src="img/benefits/food.svg" alt="food" class="benefits__card-image">
@@ -147,7 +118,9 @@
             </div>
             <div class="footer__email">
               <div>e-mail:</div>
-              <div>artek.transfer@gmail.com</div>
+              <div>
+                <a href="mailto:artek.transfer@gmail.com">artek.transfer@gmail.com</a>
+              </div>
             </div>
           </div>
         </div>
@@ -376,6 +349,30 @@
   </div>
   <script type="module" src="js/form.js"></script>
   <!-- <script src="js/script.js"></script> -->
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href').slice(1);
+        const targetEl = document.getElementById(targetId);
+
+        if (!targetEl) return;
+
+        const headerOffset = 80; // змінити на висоту твого фіксованого header
+
+        const elementPosition = targetEl.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+  </script>
 </body>
 
 </html>

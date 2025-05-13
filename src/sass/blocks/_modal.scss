@@ -12,7 +12,7 @@
         margin: 50px auto;
     }
     &__content {
-        background-color: $grey-color;
+        background-color: $bg-color;
         padding: 20px 20px;
         overflow-y: scroll;
         height: calc(100vh - 100px);
@@ -68,7 +68,7 @@
         margin: 0 auto;
     }
     &-thanks {
-        background-color: $grey-color;
+        background-color: $bg-color;
         padding: 20px 20px;
         overflow: hidden;
         height: 100%;

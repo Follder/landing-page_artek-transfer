@@ -2,6 +2,7 @@
   "transfer": [
     {
       "title": "Трансфер Київ",
+      "id": "book-kiev",
       "isTrain": true,
       "isBus": false,
       "img": "train",
@@ -40,6 +41,7 @@
     },
     {
       "title": "Трансфер Львів",
+      "id": "book-lviv",
       "isTrain": false,
       "isBus": true,
       "img": "bus",
@@ -61,6 +63,7 @@
     },
     {
       "title": "Трансфер Івано-Франківськ",
+      "id": "book-if",
       "isTrain": false,
       "isBus": true,
       "img": "bus",

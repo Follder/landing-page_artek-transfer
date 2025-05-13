@@ -3,25 +3,68 @@
     font-size: 16px;
     font-weight: 400;
     color: $text-color;
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        column-gap: 24px;
+
+        @media (max-width: 991px) {
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        @media (max-width: 767px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .title {
+        grid-column: 1 / -1;
+    }
+
     &__descr {
+        grid-column: 1 / -1;
+
         text-align: center;
         font-weight: 400;
+
+        margin-top: 20px;
+
+        @media (min-width: 768px) {
+            grid-column: 2 / span 10;
+        }
+
+        @media (min-width: 1150px) {
+            grid-column: 3 / span 8;
+        }
     }
     &__list {
+        grid-column: 1 / -1;
+
         list-style: none;
         margin-top: 20px;
+
+        @media (min-width: 768px) {
+            grid-column: 2 / span 10;
+        }
+
+        @media (min-width: 1150px) {
+            grid-column: 3 / span 8;
+        }
+
         &-item {
             line-height: 22px;
             position: relative;
-            margin-top: 10px;
+            margin-top: 20px;
             &:after {
                 content: '';
                 position: absolute;
-                top: 6px;
-                left: -30px;
-                background-image: url('../img/check-circle-solid.svg');
-                width: 16px;
-                height: 16px;
+                top: 0;
+                left: -40px;
+                background-image: url('../img/point.svg');
+                background-size: contain;
+                width: 24px;
+                height: 24px;
             }
         }
     }

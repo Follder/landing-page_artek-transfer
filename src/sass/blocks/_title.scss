@@ -1,14 +1,14 @@
 .title {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-size: 42px;
-    font-weight: 400;
+    font-size: 32px;
+    font-weight: 600;
     margin: 25px auto 10px auto;
 }
 
 @media (max-width: 575px) {
     .title {
-        font-size: 32px;
+        font-size: 26px;
         margin-top: 10px;
     }
 }
