@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
     [
       createCampDateLegend(),
       createCampDate("06.06.2025-19.06.2025", "camp-1", true),
-      createCampDate("20.06.2025-03.07.2025", "camp-2", true),
+      createCampDate("20.06.2025-03.07.2025", "camp-2", false),
       createCampDate("04.07.2025-17.07.2025", "camp-3", true),
       createCampDate("18.07.2025-31.07.2025", "camp-4", true),
       createCampDate("01.08.2025-14.08.2025", "camp-5", true),
@@ -862,7 +862,7 @@ document.addEventListener("DOMContentLoaded", () => {
         selector.focus();
         return false;
       } else if (
-        !selector.value.match(/[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/i)
+        !selector.value.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i)
       ) {
         validateMessage(secondMessage, parentSelector);
         selector.focus();
