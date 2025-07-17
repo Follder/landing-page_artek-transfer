@@ -32,12 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
         trainLink:
           "https://uz.gov.ua/passengers/timetable/?ntrain=70824&by_id=1",
         startCity: "Київ",
-        startTime: "19:57",
+        startTime: "20:13",
         endCity: "Татарів-Буковель",
         endTime: "08:12",
         toTrainTable: createTrainTable(
           "Київ - Татарів-Буковель",
-          ["Київ-Пас.", "--", "19 : 57", true],
+          ["Київ-Пас.", "--", "20 : 13", true],
           ["Львів", "02 : 56", "03 : 48", false],
           ["Івано-Франківськ", "05 : 59", "06 : 19", false],
           ["Надвірна", "07 : 01", "07 : 03", false],
@@ -241,10 +241,10 @@ document.addEventListener("DOMContentLoaded", () => {
       createCampDateLegend(),
       createCampDate("06.06.2025-19.06.2025", "camp-1", false),
       createCampDate("20.06.2025-03.07.2025", "camp-2", false),
-      createCampDate("04.07.2025-17.07.2025", "camp-3", true),
+      createCampDate("04.07.2025-17.07.2025", "camp-3", false),
       createCampDate("18.07.2025-31.07.2025", "camp-4", true),
-      createCampDate("01.08.2025-14.08.2025", "camp-5", true),
-      createCampDate("15.08.2025-28.08.2025", "camp-6", true),
+      createCampDate("01.08.2025-14.08.2025", "camp-5", false),
+      createCampDate("15.08.2025-28.08.2025", "camp-6", false),
     ],
     [
       createCampDateLegend(),
@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
     [
       createCampDateLegend(),
       createCampDate("06.06.2025-19.06.2025", "camp-1", true),
-      createCampDate("20.06.2025-03.07.2025", "camp-2", true),
+      createCampDate("20.06.2025-03.07.2025", "camp-2", false),
       createCampDate("04.07.2025-17.07.2025", "camp-3", true),
       createCampDate("18.07.2025-31.07.2025", "camp-4", true),
       createCampDate("01.08.2025-14.08.2025", "camp-5", true),
