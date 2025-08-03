@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
       createCampDate("04.07.2025-17.07.2025", "camp-3", false),
       createCampDate("18.07.2025-31.07.2025", "camp-4", true),
       createCampDate("01.08.2025-14.08.2025", "camp-5", false),
-      createCampDate("15.08.2025-28.08.2025", "camp-6", false),
+      createCampDate("15.08.2025-28.08.2025 (Плацкарт)", "camp-6", false),
     ],
     [
       createCampDateLegend(),
